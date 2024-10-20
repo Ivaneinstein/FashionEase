@@ -1,0 +1,29 @@
+<h1 class="title pt-4">HOT SALES</h1>
+<div class="row justify-content-between g-4 pb-5 ps-5 pe-5">
+  <div
+    *ngFor="let item of allProducts"
+    class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center p-4"
+  >
+    <button
+      class="card appear"
+      style="width: 18rem; background-color: #f7f7f7"
+      (click)="infoProduct(item)"
+      data-bs-toggle="modal"
+      data-bs-target="#infoProductModal"
+    >
+      <img
+        src="{{ item.imgPreview }}"
+        class="card-img-top"
+        alt="{{ item.imgPreview }}"
+        style="height: 400px; width: 350px; object-fit: cover"
+      />
+      <div class="card-body text">
+        <h4 class="card-title subtitle">{{ item.name }}</h4>
+        <h6 class="card-text text-b subtitle">{{ item.price }} USD</h6>
+      </div>
+    </button>
+  </div>
+</div>
+
+
+      <!-- TODO BETTER DO ANOTHER PAGE  -->

@@ -1,0 +1,56 @@
+.imageSize {
+  width: 100%; /* Ajusta el ancho al 70% del contenedor */
+  aspect-ratio: 70/33;
+  object-fit: cover;
+  display: block; /* Necesario para que margin: auto funcione en imágenes */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+@media (min-width: 768px) {
+  .imageSize {
+    width: 90%; /* Mantiene el 70% también en pantallas más grandes */
+    aspect-ratio: 70/33;
+  }
+}
+
+@media (min-width: 992px) {
+  .imageSize {
+    width: 90%; /* Mantiene el 70% también en pantallas más grandes */
+    aspect-ratio: 70/33;
+  }
+}
+
+/* Botones de navegación prev y next */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: gray;
+  width: 3vw; /* Ajusta el ancho de las flechas al 5% del ancho de la ventana */
+  height: 5vh; /* Ajusta la altura de las flechas al 10% del alto de la ventana */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  align-items: center; /* Centra las flechas verticalmente */
+}
+
+
+.carousel-control-prev {
+  left: -50px; /* Mueve el botón de "prev" más hacia la izquierda */
+}
+
+.carousel-control-next {
+  right: -50px; /* Mueve el botón de "next" más hacia la derecha */
+}
+
+/* Botones indicadores del carrusel */
+.carousel-indicators button {
+  background-color: gray; /* Cambia el color a gris */
+  width: 10px; /* Ajusta el ancho del botón indicador */
+  height: 10px; /* Ajusta la altura del botón indicador */
+  border-radius: 50%; /* Mantén los botones circulares */
+}
+
+.carousel-indicators .active {
+  background-color: darkgray; /* Cambia el color del botón activo a un gris más oscuro */
+}
+

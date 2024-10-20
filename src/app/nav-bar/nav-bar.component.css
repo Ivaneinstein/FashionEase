@@ -1,0 +1,19 @@
+.custom-search {
+    max-width: 90%; 
+    border-radius: 5px;  
+    padding: 0.5rem; 
+  }
+  
+
+  .sizeLogo {
+    width: 120px; 
+    height: auto; 
+  }
+  
+  @media (max-width: 768px) {
+    .sizeLogo {
+      width: 70px;
+      height: 70; 
+    }
+  }
+  
