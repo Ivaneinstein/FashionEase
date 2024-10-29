@@ -33,7 +33,7 @@ export class CartComponent {
   }
 
   async getCardData(userId: number): Promise<any[]> { // Especifica que devuelve un array
-    const response = await fetch(`https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/getCartByUserId/${userId}`); // Usa userId
+    const response = await fetch(`https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/getCartByUserId?userId=${userId}`); // Usa userId
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
