@@ -143,3 +143,4 @@ input[type="number"]::-webkit-inner-spin-button {
 .input-bounce:hover {
   animation: bounce 0.5s; /* Trigger the bounce animation on hover */
 }
+

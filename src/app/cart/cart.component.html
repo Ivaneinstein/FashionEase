@@ -1,32 +1,47 @@
 <h1 class="title py-4" style="background-color: #890000; -webkit-text-fill-color: #f7f7f7;">
-    CART PAYMENT
-  </h1>
-  
-  <div class="row justify-content-between g-4 pb-5 ps-5 pe-5">
-    <div
-      *ngFor="let item of allProducts"
-      class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center p-4"
-    >
-      <div class="card" style="background-color: #f7f7f7">
-        <div class="d-grid card-body text">
-          <h6 class="card-text text-b subtitle">Product ID: {{ item.id_producto }}</h6>
-          <h4 class="card-title subtitle">Quantity: {{ item.cantidad }}</h4>
-        </div>
-  
-        <div class="button-card">
-          <div class="my-3 mx-5 d-flex d-grid">
-            <button class="btn btn-light w-100 button-bounce" type="button">
-              Add to cart <i class="bi bi-cart-plus"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+  CART PAYMENT
+</h1>
+
+<div class="container pb-5">
+  <div
+    *ngFor="let item of allProducts"
+    class="row align-items-center justify-content-between mx-5 my-3 p-3 select"
+    style="background-color: #ffecec; border-radius: 10px;"
+  >
+    <!-- Product Image -->
+    <div class="col-3 d-flex justify-content-center ">
+      <img
+        src="{{ item.imagen_url }}"
+        class="img-fluid image-selected"
+        alt="{{ item.nombre }}"
+        style="max-height: 150px; border-radius: 10px;"
+      />
+    </div>
+    
+    <!-- Product Details -->
+    <div class="col-6">
+      <h4 class="subtitle">{{ item.nombre }}</h4>
+      <h6 class="text-b subtitle">Quantity: {{ item.cantidad }}</h6>
+      <h6 class="text-b subtitle">Price: {{ item.precio }}</h6>
+    </div>
+
+    <!-- Total Price -->
+    <div class="col-3 d-flex justify-content-center">
+      <h4 class="text-b subtitle">TOTAL: {{ item.precio * item.cantidad }} USD</h4>
     </div>
   </div>
-  
-  <ng-template #loadingTemplate>
-    <div class="text-center my-5">
-      <h2>Loading Cart Products...</h2>
-    </div>
-  </ng-template>
-  
+
+
+<button class="btn btn-dark w-100">
+  <i class="bi bi-stripe"></i>
+   Stripe Payment 
+  {{finalPrice}} USD
+</button>
+
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="text-center my-5">
+    <h2>Loading Cart Products...</h2>
+  </div>
+</ng-template>
