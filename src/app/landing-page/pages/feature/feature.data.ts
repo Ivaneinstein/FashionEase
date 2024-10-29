@@ -8,12 +8,13 @@ const mapProduct = (dbProduct: any): Product => ({
   price: dbProduct.precio,
   stock: dbProduct.stock, 
   category_id: dbProduct.id_categoria, 
-  imgPreview: dbProduct.imagen_url   
+  imgPreview: dbProduct.imagen_url,
+  id: dbProduct.id_producto  
 });
-
+ 
 const fetchProducts = async () => {
   try {
-    const response = await fetch('http://34.27.183.203:8080/products/getAllProducts');
+    const response = await fetch('https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/getAllProducts');
     const dbProducts = await response.json(); 
 
 

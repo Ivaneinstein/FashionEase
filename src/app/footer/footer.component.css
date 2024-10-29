@@ -20,7 +20,7 @@ footer {
 }
 
 .footer-section h4 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 16px;
   letter-spacing: 1px;
 }
@@ -49,23 +49,6 @@ footer {
   width: 100px;
 }
 
-.currency-switcher {
-  margin-top: 20px;
-}
-
-.currency-btn {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.currency-btn:hover {
-  background-color: #555;
-}
-
 .social-icons {
   margin-top: 20px;
 }
@@ -85,7 +68,7 @@ footer {
   border-top: 1px solid #333;
   padding-top: 20px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .payment-icons img {
