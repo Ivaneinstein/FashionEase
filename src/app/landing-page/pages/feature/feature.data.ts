@@ -20,7 +20,6 @@ const fetchProducts = async () => {
 
     dataProducts = dbProducts.map((dbProduct: any) => mapProduct(dbProduct));
 
-    console.log(dataProducts);  
   } catch (error) {
     console.error('Error fetching products:', error);
   }
