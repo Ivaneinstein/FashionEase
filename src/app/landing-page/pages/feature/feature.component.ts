@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { dataProducts } from './feature.data';
 import { CommonModule } from '@angular/common';
@@ -6,18 +7,14 @@ import { Product } from './feature.types';
 @Component({
   selector: 'feature',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ],
   templateUrl: './feature.component.html',
-  styleUrl: './feature.component.css',
+  styleUrl: './feature.component.css'
 })
 export class FeatureComponent {
-  allProducts: Product[];
-
-  constructor() {
-    this.allProducts = dataProducts;
-  }
-
-  async addToCart(usuario: number, producto: string, cantidad: number) {
+  allProducts: Product[] = dataProducts
+  
+  async addToCart(usuario: number, producto: string, cantidad: string) {
     try {
       const randomId = Math.floor(Math.random() * 1000) + 1;
       const response = await fetch(

@@ -128,3 +128,18 @@ body {
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0); }
 }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.input-bounce {
+  transition: transform 0.2s; /* Smooth transition */
+}
+
+.input-bounce:hover {
+  animation: bounce 0.5s; /* Trigger the bounce animation on hover */
+}

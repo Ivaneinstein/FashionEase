@@ -10,7 +10,15 @@ import { Component } from '@angular/core';
 })
 export class CartComponent {
   readonly user: number = 6;
-  allProducts: any[] = []; 
+  allProducts: any[] = [{
+    cantidad: 3,
+    id_producto:20
+
+  },{
+    cantidad: 4,
+    id_producto:10
+    
+  }]; 
 
   constructor() {
     this.loadCartData(); 
@@ -21,7 +29,6 @@ export class CartComponent {
       this.allProducts = await this.getCardData(this.user); 
     } catch (error) {
       console.error('Error loading cart data:', error);
-      // Puedes agregar más lógica para manejar el error, como mostrar un mensaje al usuario
     }
   }
 
