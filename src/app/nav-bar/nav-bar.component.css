@@ -1,19 +1,105 @@
 .custom-search {
-    max-width: 90%; 
-    border-radius: 5px;  
-    padding: 0.5rem; 
-  }
-  
+  max-width: 90%;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
 
+
+.sizeLogo {
+  width: 120px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
   .sizeLogo {
-    width: 120px; 
-    height: auto; 
+    width: 70px;
+    height: 70;
   }
-  
-  @media (max-width: 768px) {
-    .sizeLogo {
-      width: 70px;
-      height: 70; 
-    }
-  }
-  
+}
+
+/* Estilo para el navbar y dropdowns mejorado según el diseño solicitado */
+
+/* Contenedor principal del dropdown */
+.custom-dropdown {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  min-width: 150px; /* Ajusta el ancho mínimo según lo que necesites */
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  display: none;
+  justify-content: space-between;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Mostrar el dropdown solo al pasar el cursor */
+.nav-item.dropdown:hover .custom-dropdown {
+  display: flex;
+}
+
+/* Contenido de las secciones del dropdown */
+.dropdown-content {
+  flex: 1;
+  padding: 15px;
+}
+
+/* Títulos principales (ej. Hombre, Mujer, Niño) */
+.content-section h2 {
+  font-size: 1.8em;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* Subcategorías dentro del dropdown (ej. Limited Edition, Superior, etc.) */
+.content-section h3 {
+  font-size: 1.4em;
+  color: #fff;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* Lista de artículos dentro de cada subcategoría */
+.content-list {
+  list-style: none;
+  padding: 0;
+}
+
+.content-list li {
+  margin: 5px 0;
+}
+
+/* Estilo para los enlaces en el dropdown - sin subrayado y color blanco */
+.content-list a {
+  text-decoration: none !important;
+  color: #fff !important;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+.content-list a:hover {
+  color: #f1c40f !important;
+}
+
+/* Navbar item styles */
+.navbar-nav>.nav-item {
+  padding: 0 15px;
+}
+
+.navbar-nav>.nav-item>.nav-link {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none !important;
+}
+
+.navbar-nav>.nav-item>.nav-link:hover {
+  color: #f1c40f !important;
+}
+
+/* Ajuste de la posición del dropdown para alinearse correctamente con el menú */
+.dropdown-menu {
+  padding: 20px; /* Espacio interno */
+  border-radius: 8px; /* Borde redondeado opcional */
+}
