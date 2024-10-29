@@ -11,27 +11,19 @@ import { Product } from './feature.types';
   styleUrl: './feature.component.css',
 })
 export class FeatureComponent {
-  allProducts: Product[] = dataProducts;
+  allProducts: Product[];
+
+  constructor() {
+    this.allProducts = dataProducts;
+  }
 
   async addToCart(usuario: number, producto: string, cantidad: number) {
     try {
       const randomId = Math.floor(Math.random() * 1000) + 1;
       const response = await fetch(
-        `https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/addCartProduct`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            id_carrito: randomId,
-            id_usuario: usuario,
-            id_producto: producto,
-            cantidad: cantidad,
-          }),
-        }
+        `https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/addCartProduct?id_carrito=${randomId}&id_usuario=${usuario}&id_producto=${producto}&cantidad=${cantidad}`
       );
-  
+
       if (response.ok) {
         const data = await response.json();
         console.log('Product added to cart:', data);
@@ -42,5 +34,4 @@ export class FeatureComponent {
       console.error('Error occurred while adding product to cart:', error);
     }
   }
-  
 }

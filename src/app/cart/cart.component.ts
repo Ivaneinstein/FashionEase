@@ -6,33 +6,30 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'] // Corrected property name
+  styleUrls: ['./cart.component.css'] 
 })
 export class CartComponent {
-  allProducts: any[] = []; // Initialize with an empty array
+  readonly user: number = 6;
+  allProducts: any[] = []; 
 
   constructor() {
-    this.loadCartData(); // Call method to load cart data on initialization
+    this.loadCartData(); 
   }
 
   async loadCartData() {
-    const ids = await this.getCartIds(); // Await the promise to get cart IDs
-    this.allProducts = await this.getCardData(ids); // Await the promise to get card data
+    try {
+      this.allProducts = await this.getCardData(this.user); 
+    } catch (error) {
+      console.error('Error loading cart data:', error);
+      // Puedes agregar más lógica para manejar el error, como mostrar un mensaje al usuario
+    }
   }
 
-  async getCartIds(): Promise<string[]> {
-    const response = await fetch('getCart'); // Fetch the cart IDs
-    return response.json(); // Return parsed JSON data
-  }
-
-  async getCardData(ids: string[]): Promise<any[]> {
-    const response = await fetch('getCardData', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ ids }), // Send IDs in the request body
-    });
-    return response.json(); // Return parsed JSON data
+  async getCardData(userId: number): Promise<any[]> { // Especifica que devuelve un array
+    const response = await fetch(`https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/getCartByUserId/${userId}`); // Usa userId
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); 
   }
 }
