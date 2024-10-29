@@ -1,1 +1,37 @@
-<p>cart works!</p>
+<h1 class="title py-4" style="background-color: #890000; -webkit-text-fill-color: #f7f7f7;">
+    HOT SALES
+  </h1>
+  
+  <div *ngIf="allProducts.length > 0; else loading" class="row justify-content-between g-4 pb-5 ps-5 pe-5">
+    <div
+      *ngFor="let item of allProducts"
+      class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center p-4"
+    >
+      <div class="card" style="background-color: #f7f7f7">
+        <img
+          src="{{ item.imgPreview }}"
+          class="card-img-top"
+          alt="{{ item.imgPreview }}"
+        />
+        <div class="card-body text">
+          <h4 class="card-title subtitle">{{ item.name }}</h4>
+          <h6 class="card-text text-b subtitle">{{ item.price }} USD</h6>
+        </div>
+  
+        <div class="button-card">
+          <div class="my-3 mx-5 d-flex d-grid">
+            <button class="btn btn-light w-100 button-bounce" type="button" >
+              Add to cart <i class="bi bi-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <div class="text-center my-5">
+      <h2>Loading Products...</h2>
+    </div>
+  </ng-template>
+  

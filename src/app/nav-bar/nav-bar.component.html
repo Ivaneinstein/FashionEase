@@ -1,17 +1,6 @@
-<<<<<<< HEAD
-<!-- sticky-top -->
- <!-- this is for the sticky nav idk if we should let it here -->
 
-<nav
-
-  class="navbar navbar-expand-lg bg-dark border-bottom border-body"
-  data-bs-theme="dark"
->
-  <div class="d-flex justify-content-between align-items-center p-2 w-100 h-40">
-=======
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body sticky-top" data-bs-theme="dark">
   <div class="d-flex justify-content-between align-items-center p-2 w-100">
->>>>>>> 10f051f715ec714feaba28f7788e28ea39bea648
     <div class="pe-2 d-lg-none">
       <button class="btn btn-outline-light" type="button">
         <i class="bi bi-layout-sidebar-inset"></i>
@@ -81,9 +70,10 @@
       </ul>
     </div>
 
-    <div class="d-flex align-items-center ms-3">
-      <button class="btn btn-outline-light">
-        <i class="bi bi-cart-check"> </i></button>
+    <div class="d-flex align-items-center ms-3" >
+      <a class="btn btn-outline-light" routerLink="/cart">
+        <i class="bi bi-cart-check"> </i>
+      </a>
       <span class="top-0 start-22 translate-middle badge rounded-pill bg-danger">
         3
       </span>
