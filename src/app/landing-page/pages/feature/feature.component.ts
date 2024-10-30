@@ -1,8 +1,7 @@
 
 import { Component } from '@angular/core';
-import { dataProducts } from './feature.data';
 import { CommonModule } from '@angular/common';
-import { Product } from './feature.types';
+import { dataProducts } from './feature.data';
 
 @Component({
   selector: 'feature',
@@ -12,28 +11,25 @@ import { Product } from './feature.types';
   styleUrl: './feature.component.css'
 })
 export class FeatureComponent {
-  allProducts: Product[] = dataProducts
+  allProducts =  dataProducts
   
   async addToCart(usuario: number, producto: string, cantidad: string) {
     try {
-      const randomId = Math.floor(Math.random() * 1000) + 1;
   
-      const response = await fetch(
-        `https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/addCartProduct`,
+      const response = await fetch('https://fashion-ease-db-queries-840520918801.us-central1.run.app/addCartProduct',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id_carrito: randomId,
             id_usuario: usuario,
             id_producto: producto,
             cantidad: cantidad,
           }),
         }
       );
-  
+      
       if (response.ok) {
         const data = await response.json();
         console.log('Product added to cart:', data);

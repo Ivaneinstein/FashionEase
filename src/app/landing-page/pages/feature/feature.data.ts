@@ -14,7 +14,7 @@ const mapProduct = (dbProduct: any): Product => ({
  
 const fetchProducts = async () => {
   try {
-    const response = await fetch('https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/getAllProducts');
+    const response = await fetch('https://fashion-ease-db-queries-840520918801.us-central1.run.app/getAllProducts');
     const dbProducts = await response.json(); 
 
 

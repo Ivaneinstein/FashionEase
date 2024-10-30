@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component,  } from '@angular/core';
+import { Component } from '@angular/core';
 import { dataProducts } from './cart.data';
+import { Product } from '../landing-page/pages/feature/feature.types';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +11,8 @@ import { dataProducts } from './cart.data';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  readonly user: number = 6;
-  allProducts: any[] = dataProducts;
+  readonly user: number = 1;
+  allProducts: any[] =  dataProducts;
   finalPrice: number = 0;
 
   constructor() {
@@ -20,8 +21,7 @@ export class CartComponent {
 
   getPrice() {
     for (const item of this.allProducts) {
-      this.finalPrice += item.precio * item.cantidad;
-      console.log(this.finalPrice);
+      this.finalPrice += item.price * item.cantidad;
     }
     return this.finalPrice;
   }

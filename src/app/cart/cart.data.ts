@@ -3,7 +3,7 @@ export var dataProducts = [];
 const fetchProducts = async () => {
   try {
     const response = await fetch(
-      'https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/getCartByUserId?userId=6'
+      'https://fashion-ease-db-queries-840520918801.us-central1.run.app/getCartByUserId?userId=1'
     );
     const dbProducts = await response.json();
 
@@ -16,7 +16,7 @@ const fetchProducts = async () => {
     console.log(ids)
 
     const responseData = await fetch(
-      `https://us-central1-fashionease-438818.cloudfunctions.net/db-queries/getProductsByIds?id_producto=${ids}`
+      `https://fashion-ease-db-queries-840520918801.us-central1.run.app/getProductsByIds?id_producto=${ids}`
     );
     const products = await responseData.json();
 
