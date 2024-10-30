@@ -1,12 +1,9 @@
 // This is your test secret API key.
 const stripe = require('stripe')('sk_test_51PzNMZJuhgKcHeSBjQDA341v595VslSvDsi0EAQQOLf0icKHaV3uh6msY1lXqvPdtKNXnyGWmgmSxC6u3ozdSpQ600W9H5ajw9');
 const express = require('express');
-const cors = require('cors')
 const app = express();
-const bodyParser = require('body-parser')
 app.use(express.static('public'));
-app.use(cors)
-app.use(bodyParser.json())
+
 const YOUR_DOMAIN = 'http://localhost:4242';
 
 app.post('/create-checkout-session', async (req, res) => {
