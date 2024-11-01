@@ -6,10 +6,11 @@ import { dataProducts } from './feature.data';
 @Component({
   selector: 'feature',
   standalone: true,
-  imports: [CommonModule, ],
+  imports: [CommonModule],
   templateUrl: './feature.component.html',
-  styleUrl: './feature.component.css'
+  styleUrls: ['./feature.component.css'] 
 })
+
 export class FeatureComponent {
   allProducts =  dataProducts
   
@@ -23,10 +24,11 @@ export class FeatureComponent {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id_usuario: usuario,
-            id_producto: producto,
-            cantidad: cantidad,
+            id_usuario: Number(usuario),
+            id_producto: Number(producto),
+            cantidad: Number(cantidad),
           }),
+          
         }
       );
       
