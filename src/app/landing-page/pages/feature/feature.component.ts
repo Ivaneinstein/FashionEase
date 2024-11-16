@@ -1,22 +1,47 @@
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { dataProducts } from './feature.data';
+import { Product } from './feature.types';
+import { baseUrl } from '../../../../environment';
 
 @Component({
   selector: 'feature',
   standalone: true,
-  imports: [CommonModule, ],
+  imports: [CommonModule],
   templateUrl: './feature.component.html',
-  styleUrl: './feature.component.css'
+  styleUrls: ['./feature.component.css'],
 })
-export class FeatureComponent {
-  allProducts =  dataProducts
-  
+export class FeatureComponent implements OnInit {
+  allProducts: Product[] = []; // Local state for products
+
+  async ngOnInit() {
+    await this.fetchProducts();
+  }
+
+  async fetchProducts() {
+    try {
+      const response = await fetch(
+        `${baseUrl}/getAllProducts`
+      );
+      const dbProducts = await response.json();
+
+      this.allProducts = dbProducts.map((dbProduct: any) => ({
+        name: dbProduct.nombre,
+        description: dbProduct.descripcion,
+        price: dbProduct.precio,
+        stock: dbProduct.stock,
+        category_id: dbProduct.id_categoria,
+        imgPreview: dbProduct.imagen_url,
+        id: dbProduct.id_producto,
+      }));
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  }
+
   async addToCart(usuario: number, producto: string, cantidad: string) {
     try {
-  
-      const response = await fetch('https://fashion-ease-db-queries-840520918801.us-central1.run.app/addCartProduct',
+      const response = await fetch(
+        `${baseUrl}/addCartProduct`,
         {
           method: 'POST',
           headers: {
@@ -29,17 +54,21 @@ export class FeatureComponent {
           }),
         }
       );
-      
+
       if (response.ok) {
         const data = await response.json();
         console.log('Product added to cart:', data);
       } else {
-        const errorDetails = await response.text(); // Get more details from the response
-        console.error('Failed to add product to cart:', response.statusText, 'Details:', errorDetails);
+        const errorDetails = await response.text();
+        console.error(
+          'Failed to add product to cart:',
+          response.statusText,
+          'Details:',
+          errorDetails
+        );
       }
     } catch (error) {
       console.error('Error occurred while adding product to cart:', error);
     }
   }
-  
 }

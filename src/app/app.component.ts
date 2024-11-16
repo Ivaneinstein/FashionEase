@@ -5,6 +5,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FeatureComponent } from './landing-page/pages/feature/feature.component';
+import { CarrouselComponent } from './landing-page/pages/carrousel/carrousel.component';
 
 @Component({
   selector: 'Wrapper',
@@ -22,4 +24,5 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'FashionEase';
+
 }

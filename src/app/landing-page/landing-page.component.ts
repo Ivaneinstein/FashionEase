@@ -9,5 +9,6 @@ import { FeatureComponent } from "./pages/feature/feature.component";
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
+  
 }
 

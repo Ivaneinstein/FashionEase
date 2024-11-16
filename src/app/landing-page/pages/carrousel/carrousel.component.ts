@@ -8,9 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './carrousel.component.css'
 })
 export class CarrouselComponent {
-  consolelog() {
-    
-    console.log('consolelog example'); 
-
-  }
+  
 }

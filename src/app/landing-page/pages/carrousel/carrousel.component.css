@@ -1,13 +1,13 @@
 .carousel {
-  overflow: hidden; /* Prevents overflow and scrolling */
+  overflow: hidden;
 }
 
 .carousel-inner {
-  width: 100%; /* Ensures inner carousel takes full width */
+  width: 100%; 
 }
 
 .carousel-item {
-  width: 100%; /* Each carousel item takes full width of the carousel */
+  width: 100%; 
 }
 
 
@@ -18,15 +18,17 @@
   display: block;
   margin: 0 auto;
   transition: opacity 1s ease;
+  transform: translateZ(0);
 }
 
 .carousel-item {
-  opacity: .8;
-  transition: opacity 1s ease;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease; 
 }
 
 .carousel-item.active {
   opacity: 1;
+  transform: translateX(0); 
 }
 
 @media (min-width: 768px) {

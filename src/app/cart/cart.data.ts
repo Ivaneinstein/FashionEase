@@ -1,9 +1,11 @@
+import { baseUrl } from "../../environment";
+
 export var dataProducts = [];
 
 const fetchProducts = async () => {
   try {
     const response = await fetch(
-      'https://fashion-ease-db-queries-840520918801.us-central1.run.app/getCartByUserId?userId=1'
+      `${baseUrl}/getCartByUserId?userId=1`
     );
     const dbProducts = await response.json();
 
@@ -16,7 +18,7 @@ const fetchProducts = async () => {
     console.log(ids)
 
     const responseData = await fetch(
-      `https://fashion-ease-db-queries-840520918801.us-central1.run.app/getProductsByIds?id_producto=${ids}`
+      `${baseUrl}/getProductsByIds?id_producto=${ids}`
     );
     const products = await responseData.json();
 

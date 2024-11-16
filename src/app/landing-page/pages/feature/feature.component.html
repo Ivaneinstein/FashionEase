@@ -6,7 +6,6 @@
 </h1>
 
 <div
-  *ngIf="allProducts.length > 0; else loading"
   class="row justify-content-between g-4 pb-5 ps-5 pe-5"
 >
   <div
@@ -49,9 +48,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #loading>
-  <div class="text-center my-5">
-    <h2>Loading Products...</h2>
-  </div>
-</ng-template>

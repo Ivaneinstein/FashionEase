@@ -30,13 +30,15 @@
       <h4 class="text-b subtitle">TOTAL: {{ item.precio * item.cantidad }} USD</h4>
     </div>
   </div>
-
-
-<a class="btn btn-dark w-100" href="https://buy.stripe.com/test_9AQbMy5na30SaXK146">
+<!-- 
+  <button (click)="pay()">
+    pagar
+  </button> -->
+<button class="btn btn-dark w-100" (click)="pay()">
   <i class="bi bi-stripe"></i>
    Stripe Payment 
   {{finalPrice}} USD
-</a>
+</button>
 
 </div>
 
