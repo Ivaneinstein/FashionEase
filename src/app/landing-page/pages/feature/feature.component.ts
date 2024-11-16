@@ -48,10 +48,11 @@ export class FeatureComponent implements OnInit {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id_usuario: usuario,
-            id_producto: producto,
-            cantidad: cantidad,
+            id_usuario: Number(usuario),
+            id_producto: Number(producto),
+            cantidad: Number(cantidad),
           }),
+          
         }
       );
 
