@@ -1,15 +1,11 @@
+
 import { Component } from '@angular/core';
 import { HlmInputDirective } from '@spartan-ng/ui-input-helm';
 
-
-
 @Component({
-  selector: 'login-page',
+  selector: 'spartan-input-preview',
   standalone: true,
   imports: [HlmInputDirective],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.css'
+  template: `<input class="w-80" hlmInput placeholder='Email' type='email' />`,
 })
-export class LoginPageComponent {
-
-}
+export class InputPreviewComponent {}

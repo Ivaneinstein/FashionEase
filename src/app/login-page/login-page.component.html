@@ -1,22 +1,31 @@
-<body >
-  <div class="container d-flex flex-column justify-content-center align-items-center h-100">
-    <div class="mb-4" style="font-size: 2.5rem; font-weight: bold;">
-
-        <img src="/logo_light.svg" class="image" />
-
+<body>
+  <div
+    class="container d-flex flex-column justify-content-center align-items-center h-100"
+  >
+    <div class="mb-4" style="font-size: 2.5rem; font-weight: bold">
+      <img src="/logo_light.svg" class="image" />
     </div>
-    <div class="login-box w-100" style="max-width: 400px;">
+    <div class="login-box w-100" style="max-width: 400px">
+      <label hlmLabel           style="width: 100%"
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">{{'@'}}</span>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
-            <span class="input-group-text" id="basic-addon1">{{'*'}}</span>
-          </div>
-        <button type="button" class="btn btn-outline-light rounded-pill " style="width: 100%;">Sign in</button>
+        >Email
+        <input
+          class="w-80"
+          hlmInput
+          type="email"
+          placeholder="Email"
+          style="width: 100%"
 
+        />
+      </label>
+
+      <button
+        type="button"
+        class="btn btn-outline-light rounded-pill"
+        style="width: 100%"
+      >
+        Sign in
+      </button>
     </div>
-</div>
+  </div>
 </body>
