@@ -1,0 +1,38 @@
+body {
+  height: 100vh;
+  background-color: #0c0c0c;
+  color: white;
+}
+
+.image {
+  width: 140px;
+  align-items: center;
+}
+
+.rounded {
+  border-radius: 30%;
+}
+
+.login-box input {
+  background-color: #0c0c0c;
+  color: white !important;
+}
+
+.login-box .btn {
+  background-color: #333;
+  color: white;
+}
+
+.login-box .btn:hover {
+  background-color: #444;
+}
+
+a {
+  color: #FFFFFFFF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}

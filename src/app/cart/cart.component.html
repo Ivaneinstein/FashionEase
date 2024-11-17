@@ -1,3 +1,10 @@
+
+<nav-bar/>
+
+
+<div>
+
+
 <h1 class="title py-4" style="background-color: #890000; -webkit-text-fill-color: #f7f7f7;">
   CART PAYMENT
 </h1>
@@ -30,10 +37,7 @@
       <h4 class="text-b subtitle">TOTAL: {{ item.precio * item.cantidad }} USD</h4>
     </div>
   </div>
-<!-- 
-  <button (click)="pay()">
-    pagar
-  </button> -->
+
 <button class="btn btn-dark w-100" (click)="pay()">
   <i class="bi bi-stripe"></i>
    Stripe Payment 
@@ -42,3 +46,7 @@
 
 </div>
 
+  
+</div>
+
+<app-footer/>

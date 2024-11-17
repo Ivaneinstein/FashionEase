@@ -13,9 +13,9 @@ import { CarrouselComponent } from './landing-page/pages/carrousel/carrousel.com
   standalone: true,
   imports: [
     RouterOutlet,
-    NavBarComponent,
     SidebarComponent,
     LandingPageComponent,
+    NavBarComponent,
     FooterComponent,
     HttpClientModule
   ],

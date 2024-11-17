@@ -2,11 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 import { baseUrl } from '../../environment';
+import { FooterComponent } from '../footer/footer.component';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, NavBarComponent,
+    FooterComponent],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
