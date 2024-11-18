@@ -74,3 +74,8 @@
 .carousel-indicators .active {
   background-color: darkgray;
 }
+
+.carrousel{
+  cursor: crosshair;
+  /* cursor:pointer; */
+}

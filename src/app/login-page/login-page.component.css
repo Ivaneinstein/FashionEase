@@ -1,6 +1,14 @@
 body {
   height: 100vh;
-  background-color: #0c0c0c;
+}
+.left-side {
+  height: 100vh;
+  background-color: #181717;
+  color: white;
+}
+.right-side {
+  height: 100vh;
+  background-color: #FFFAFA;
   color: white;
 }
 
@@ -35,4 +43,32 @@ a {
 a:hover {
   color: white;
   text-decoration: underline;
+}
+
+.title {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+.mini {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.carrousel{
+  cursor: crosshair;
+  /* cursor:pointer; */
 }

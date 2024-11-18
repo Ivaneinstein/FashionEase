@@ -1,0 +1,400 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.1.2",
+  "pathMappings": {
+    "@spartan-ng/ui-icon-helm": [
+      ".\\components/ui-icon-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-input-helm": [
+      ".\\components/ui-input-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-formfield-helm": [
+      ".\\components/ui-formfield-helm/src/index.ts"
+    ],
+    "@spartan-ng/ui-button-helm": [
+      ".\\components/ui-button-helm/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "FashionEase": [
+        {
+          "file": ".editorconfig",
+          "hash": "8037249353422744134"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "327252181236308994"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "11934160580685414355"
+        },
+        {
+          "file": ".vscode/launch.json",
+          "hash": "17406702432687230417"
+        },
+        {
+          "file": ".vscode/tasks.json",
+          "hash": "10093397977228577162"
+        },
+        {
+          "file": "README.md",
+          "hash": "9059564691705880790"
+        },
+        {
+          "file": "angular.json",
+          "hash": "17233695921553018561"
+        },
+        {
+          "file": "components/ui-button-helm/src/index.ts",
+          "hash": "8982221364966377158"
+        },
+        {
+          "file": "components/ui-button-helm/src/lib/hlm-button.directive.ts",
+          "hash": "6707392129396539941"
+        },
+        {
+          "file": "components/ui-formfield-helm/src/index.ts",
+          "hash": "1379682831294187538"
+        },
+        {
+          "file": "components/ui-formfield-helm/src/lib/form-field.spec.ts",
+          "hash": "828620970068933365"
+        },
+        {
+          "file": "components/ui-formfield-helm/src/lib/hlm-error.directive.ts",
+          "hash": "2202752804672666086"
+        },
+        {
+          "file": "components/ui-formfield-helm/src/lib/hlm-form-field.component.ts",
+          "hash": "834808206488500332"
+        },
+        {
+          "file": "components/ui-formfield-helm/src/lib/hlm-hint.directive.ts",
+          "hash": "1353356541003300064"
+        },
+        {
+          "file": "components/ui-icon-helm/src/index.ts",
+          "hash": "15313191911740362975"
+        },
+        {
+          "file": "components/ui-icon-helm/src/lib/hlm-icon.component.spec.ts",
+          "hash": "4553494485907318760"
+        },
+        {
+          "file": "components/ui-icon-helm/src/lib/hlm-icon.component.ts",
+          "hash": "166660981264464896"
+        },
+        {
+          "file": "components/ui-input-helm/src/index.ts",
+          "hash": "487913567356772959"
+        },
+        {
+          "file": "components/ui-input-helm/src/lib/hlm-input-error.directive.ts",
+          "hash": "17996525915591253064"
+        },
+        {
+          "file": "components/ui-input-helm/src/lib/hlm-input.directive.ts",
+          "hash": "8834241796495517286"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "8056430915291956648"
+        },
+        {
+          "file": "package.json",
+          "hash": "665085281220415073",
+          "deps": [
+            "npm:@angular-devkit/build-angular",
+            "npm:@angular/cli",
+            "npm:@angular/compiler-cli",
+            "npm:@spartan-ng/cli",
+            "npm:@types/express",
+            "npm:@types/jasmine",
+            "npm:@types/node",
+            "npm:http-proxy-middleware",
+            "npm:jasmine-core",
+            "npm:karma",
+            "npm:karma-chrome-launcher",
+            "npm:karma-coverage",
+            "npm:karma-jasmine",
+            "npm:karma-jasmine-html-reporter",
+            "npm:nodemon",
+            "npm:tailwind-merge",
+            "npm:tailwindcss",
+            "npm:tailwindcss-animate",
+            "npm:typescript",
+            "npm:@angular/animations",
+            "npm:@angular/cdk",
+            "npm:@angular/common",
+            "npm:@angular/compiler",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/platform-browser",
+            "npm:@angular/platform-browser-dynamic",
+            "npm:@angular/platform-server",
+            "npm:@angular/router",
+            "npm:@angular/ssr",
+            "npm:@ng-icons/core",
+            "npm:@spartan-ng/ui-core",
+            "npm:@spartan-ng/ui-formfield-brain",
+            "npm:@spartan-ng/ui-forms-brain",
+            "npm:@stripe/stripe-js",
+            "npm:bootstrap",
+            "npm:bootstrap-icons",
+            "npm:class-variance-authority",
+            "npm:clsx",
+            "npm:cors",
+            "npm:dotenv",
+            "npm:express",
+            "npm:jwt-decode",
+            "npm:mysql",
+            "npm:rxjs",
+            "npm:stripe",
+            "npm:tslib",
+            "npm:zone.js"
+          ]
+        },
+        {
+          "file": "public/Banner1.png",
+          "hash": "4738225720378834028"
+        },
+        {
+          "file": "public/Banner2.png",
+          "hash": "1050302738398844880"
+        },
+        {
+          "file": "public/Banner3.png",
+          "hash": "10525703449391449545"
+        },
+        {
+          "file": "public/favicon.ico",
+          "hash": "3988961587069885523"
+        },
+        {
+          "file": "public/logo_dark.svg",
+          "hash": "12009133634676430007"
+        },
+        {
+          "file": "public/logo_light.svg",
+          "hash": "10591706910679706585"
+        },
+        {
+          "file": "server.ts",
+          "hash": "11690129240233445337"
+        },
+        {
+          "file": "src/app/app.component.css",
+          "hash": "9358347913519441282"
+        },
+        {
+          "file": "src/app/app.component.html",
+          "hash": "9050090984753194144"
+        },
+        {
+          "file": "src/app/app.component.spec.ts",
+          "hash": "282999439478224071"
+        },
+        {
+          "file": "src/app/app.component.ts",
+          "hash": "1817218832514933905"
+        },
+        {
+          "file": "src/app/app.config.server.ts",
+          "hash": "15184490126418035619"
+        },
+        {
+          "file": "src/app/app.config.ts",
+          "hash": "2162926985171575317"
+        },
+        {
+          "file": "src/app/app.routes.ts",
+          "hash": "15882758154879395337"
+        },
+        {
+          "file": "src/app/cart/cart.component.css",
+          "hash": "8871245926497773287"
+        },
+        {
+          "file": "src/app/cart/cart.component.html",
+          "hash": "15546477429020748085"
+        },
+        {
+          "file": "src/app/cart/cart.component.spec.ts",
+          "hash": "9660626858117807875"
+        },
+        {
+          "file": "src/app/cart/cart.component.ts",
+          "hash": "17332361955735358894"
+        },
+        {
+          "file": "src/app/cart/cart.data.ts",
+          "hash": "14797998413033086131"
+        },
+        {
+          "file": "src/app/cart/cart.types.ts",
+          "hash": "16323819160036135066"
+        },
+        {
+          "file": "src/app/footer/footer.component.css",
+          "hash": "18334647305873051213"
+        },
+        {
+          "file": "src/app/footer/footer.component.html",
+          "hash": "4652029401146238202"
+        },
+        {
+          "file": "src/app/footer/footer.component.spec.ts",
+          "hash": "14137441509105306087"
+        },
+        {
+          "file": "src/app/footer/footer.component.ts",
+          "hash": "4583625294760896775"
+        },
+        {
+          "file": "src/app/landing-page/landing-page.component.css",
+          "hash": "1469113963628933381"
+        },
+        {
+          "file": "src/app/landing-page/landing-page.component.html",
+          "hash": "710983362920195667"
+        },
+        {
+          "file": "src/app/landing-page/landing-page.component.spec.ts",
+          "hash": "6827704354896947183"
+        },
+        {
+          "file": "src/app/landing-page/landing-page.component.ts",
+          "hash": "2406985676643657609"
+        },
+        {
+          "file": "src/app/landing-page/pages/carrousel/carrousel.component.css",
+          "hash": "11346108793499531547"
+        },
+        {
+          "file": "src/app/landing-page/pages/carrousel/carrousel.component.html",
+          "hash": "14008621314624469491"
+        },
+        {
+          "file": "src/app/landing-page/pages/carrousel/carrousel.component.spec.ts",
+          "hash": "6413210208823298777"
+        },
+        {
+          "file": "src/app/landing-page/pages/carrousel/carrousel.component.ts",
+          "hash": "1631285510692674230"
+        },
+        {
+          "file": "src/app/landing-page/pages/feature/feature.component.css",
+          "hash": "5234775760071332327"
+        },
+        {
+          "file": "src/app/landing-page/pages/feature/feature.component.html",
+          "hash": "17496949612407280180"
+        },
+        {
+          "file": "src/app/landing-page/pages/feature/feature.component.spec.ts",
+          "hash": "15957035176989699972"
+        },
+        {
+          "file": "src/app/landing-page/pages/feature/feature.component.ts",
+          "hash": "4622480185417288103"
+        },
+        {
+          "file": "src/app/landing-page/pages/feature/feature.data.ts",
+          "hash": "5210916819483008518"
+        },
+        {
+          "file": "src/app/landing-page/pages/feature/feature.types.ts",
+          "hash": "11631285628911137922"
+        },
+        {
+          "file": "src/app/login-page/login-page.component.css",
+          "hash": "4607870866938774040"
+        },
+        {
+          "file": "src/app/login-page/login-page.component.html",
+          "hash": "121200647089588797"
+        },
+        {
+          "file": "src/app/login-page/login-page.component.spec.ts",
+          "hash": "610095280686534562"
+        },
+        {
+          "file": "src/app/login-page/login-page.component.ts",
+          "hash": "3349399832935419889"
+        },
+        {
+          "file": "src/app/nav-bar/nav-bar.component.css",
+          "hash": "5482628694846283323"
+        },
+        {
+          "file": "src/app/nav-bar/nav-bar.component.html",
+          "hash": "844328003006565642"
+        },
+        {
+          "file": "src/app/nav-bar/nav-bar.component.spec.ts",
+          "hash": "812912878428281438"
+        },
+        {
+          "file": "src/app/nav-bar/nav-bar.component.ts",
+          "hash": "9969539895653820123"
+        },
+        {
+          "file": "src/app/sidebar/sidebar.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/sidebar/sidebar.component.html",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/sidebar/sidebar.component.spec.ts",
+          "hash": "4273133810497188573"
+        },
+        {
+          "file": "src/app/sidebar/sidebar.component.ts",
+          "hash": "6624802794821424547"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "11546450277554786266"
+        },
+        {
+          "file": "src/main.server.ts",
+          "hash": "9257623809215978365"
+        },
+        {
+          "file": "src/main.ts",
+          "hash": "4169901790405087765"
+        },
+        {
+          "file": "src/models/cart.model.ts",
+          "hash": "9319837143628558380"
+        },
+        {
+          "file": "src/styles.css",
+          "hash": "4134055074904093998"
+        },
+        {
+          "file": "tailwind.config.js",
+          "hash": "7638039687963763346"
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "4083687997893277661"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "13218576015872363759"
+        },
+        {
+          "file": "tsconfig.spec.json",
+          "hash": "11023685540591620072"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  }
+}

@@ -31,6 +31,12 @@
       ],
       "@spartan-ng/ui-formfield-helm": [
         ".\\components/ui-formfield-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-button-helm": [
+        ".\\components/ui-button-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-carousel-helm": [
+        ".\\components/ui-carousel-helm/src/index.ts"
       ]
     }
   },
