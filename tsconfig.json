@@ -37,6 +37,9 @@
       ],
       "@spartan-ng/ui-carousel-helm": [
         ".\\components/ui-carousel-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-sonner-helm": [
+        ".\\components/ui-sonner-helm/src/index.ts"
       ]
     }
   },

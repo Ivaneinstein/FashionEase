@@ -1,3 +1,5 @@
+<hlm-toaster />
+
 <h1
   class="title py-4"
   style="background-color: #890000; -webkit-text-fill-color: #f7f7f7"
@@ -25,21 +27,11 @@
 
       <div class="button-card">
         <div class="my-3 mx-5 d-flex d-grid justify-content-between">
-          <input
-            type="number"
-            class="form-control mx-3 input-bounce"
-            placeholder="1"
-            aria-label="1"
-            #quantityInput
-            value="1"
-            aria-describedby="basic-addon2"
-            style="height: 40px; width: 60px"
-          />
-
+          
           <button
             class="btn btn-light w-100 button-bounce"
             type="button"
-            (click)="addToCart(1, item.id, quantityInput.value)"
+            (click)="addToCart( item.id) "
           >
             Add <i class="bi bi-cart-plus"></i>
           </button>

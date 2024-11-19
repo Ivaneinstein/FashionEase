@@ -1,4 +1,4 @@
-<body class="d-flex w-full h-screen">
+<div class="d-flex w-full h-screen">
   <div
     class="left-side d-flex justify-content-center align-items-center w-1/2 h-full"
   >
@@ -7,7 +7,7 @@
         <img src="/logo_light.svg" class="image w-auto max-w-full h-auto" />
       </div>
       <h2 class="align-middle mb-5 title">WELCOME BACK!</h2>
-      <label hlmLabel style="width: 100%" class="mb-5">
+      <label hlmLabel style="width: 100%" class="mb-2">
         <h4 class="mb-2 subtitle">Email</h4>
         <input
           class="w-100"
@@ -17,6 +17,9 @@
           (change)="emailField($event)"
           />
       </label>
+      <p class=" small text-center mb-2">
+        Don't have an account, create an account <a class="mini" href="/SignUp">here</a>.
+    </p>
       <label hlmLabel style="width: 100%" class="mb-5">
         <h4 class="mb-2 subtitle">Password</h4>
         <input
@@ -66,4 +69,4 @@
       </hlm-carousel>
     </div>
   </div>
-</body>
+</div>

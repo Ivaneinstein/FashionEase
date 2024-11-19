@@ -4,17 +4,19 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { baseUrl } from '../../environment';
 import { FooterComponent } from '../footer/footer.component';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { toast } from 'ngx-sonner';
+import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
   imports: [CommonModule, HttpClientModule, NavBarComponent,
-    FooterComponent],
+    FooterComponent, HlmToasterComponent],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  readonly user: number = 1;
+  readonly user: number = parseInt(localStorage.getItem('id') || '0', 10);
   allProducts: any[] = [];
   finalPrice: number = 0;
 
@@ -37,7 +39,7 @@ export class CartComponent implements OnInit {
   async fetchProducts() {
     try {
       const response = await fetch(
-        `${baseUrl}/getCartByUserId?userId=1`
+        `${baseUrl}/getCartByUserId?userId=${this.user}`
       );
       const dbProducts = await response.json();
 
@@ -68,7 +70,7 @@ export class CartComponent implements OnInit {
   }
 
   pay() {
-    const userId = 1;
+    const userId = this.user;
 
     this.http.post<any>(
       `${baseUrl}/create-checkout-session/${userId}`,
@@ -86,7 +88,7 @@ export class CartComponent implements OnInit {
   }
 
   downloadReceipt() {
-    const userId = 1;
+    const userId = this.user;
 
     this.http.get(
       `${baseUrl}/receipt/${userId}`,
@@ -104,5 +106,44 @@ export class CartComponent implements OnInit {
       (error: any) => {
       }
     );
+  }
+
+  increaseQuantity(item: any) {
+    item.cantidad++;
+
+    this.finalPrice = this.getPrice();
+  }
+
+  decreaseQuantity(item: any) {
+    if (item.cantidad > 1) {
+      item.cantidad--; 
+    } else {
+      console.log(item.id_producto);
+  
+      this.http.delete<any>(
+        `http://localhost:8080/removeCart/${this.user}/${item.id_producto}`
+      ).subscribe(
+        (response: any) => {
+          console.log('Item removed from cart:', response);
+          this.showToast('Item removed from cart')
+          this.fetchProducts();
+        },
+        (error: any) => {
+          console.error('Error removing from cart:', error);
+          this.showToast('Error removing from cart')
+
+        }
+      );
+    }
+  
+    this.finalPrice = this.getPrice(); 
+  }
+  
+
+  showToast(msg:string) {
+    toast('Status cart', {
+      description: msg,
+
+    })
   }
 }

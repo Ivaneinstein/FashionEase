@@ -11,23 +11,20 @@ import { CommonModule } from '@angular/common';
 import { baseUrl } from '../../environment';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
-
 @Component({
-  selector: 'login-page',
+  selector: 'app-sign-up',
   standalone: true,
-  imports: [
-    CommonModule,
+  imports: [CommonModule,
     HlmInputDirective,
     HlmButtonDirective,
     HlmCarouselComponent,
     HlmCarouselContentComponent,
     HlmCarouselItemComponent,
-    HttpClientModule,
-  ],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.css',
+    HttpClientModule,],
+  templateUrl: './sign-up.component.html',
+  styleUrl: './sign-up.component.css'
 })
-export class LoginPageComponent {
+export class SignUpComponent {
   constructor(private http: HttpClient, private router: Router) {}
   carouselItems: string[] = ['/Banner1.png', '/Banner2.png', '/Banner3.png'];
   email: string = '';

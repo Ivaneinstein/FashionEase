@@ -1,0 +1,71 @@
+<div class="d-flex w-full h-screen">
+    
+    <div class="left-side w-1/2 h-full">
+      <div class="flex items-center justify-center w-full h-full p-4">
+        <hlm-carousel class="w-full max-w-full">
+          <hlm-carousel-content>
+            <ng-container *ngFor="let item of carouselItems; trackBy: trackById">
+              <hlm-carousel-item>
+                <div class="p-1">
+                  <section hlmCard>
+                    <div hlmCardContent class="flex items-center justify-center">
+                      <img
+                        [src]="item"
+                        alt="Banner image"
+                        class="w-full h-full object-cover carrousel"
+                      />
+                    </div>
+                  </section>
+                </div>
+              </hlm-carousel-item>
+            </ng-container>
+          </hlm-carousel-content>
+        </hlm-carousel>
+      </div>
+    </div>
+    <div
+      class="right-side d-flex justify-content-center align-items-center w-1/2 h-full"
+    >
+      <div class="login-box w-full flex-col max-w-xs">
+        <div class="mb-4 flex-auto" style="font-size: 2rem; font-weight: bold; align-self: center; text-align: center;">
+          <img src="/logo_light.svg" class="image w-auto max-w-full h-auto" />
+        </div>
+        <h2 class="align-middle mb-5 title">WELCOME TO FASHION EASE!</h2>
+        <label hlmLabel style="width: 100%" class="mb-5">
+          <h4 class="mb-2 subtitle">Email</h4>
+          <input
+            class="w-100"
+            hlmInput
+            type="email"
+            placeholder="Enter email address ..."
+            (change)="emailField($event)"
+            />
+        </label>
+        <label hlmLabel style="width: 100%" class="mb-5">
+          <h4 class="mb-2 subtitle">Password</h4>
+          <input
+            class="w-100"
+            hlmInput
+            type="password"
+            placeholder="Enter password ..."
+            (change)="passwordField($event)"
+  
+          />
+        </label>
+        <button
+          hlmBtn
+          variant="outline"
+          style="width: 100%"
+          class="rounded-pill my-2"
+          (click)="SignIn()"
+        >
+          Sign up
+        </button>
+        <p class=" small text-center">
+          By continuing, you agree to our <a class="mini" href="#">Terms of Service</a> and <a class="mini" href="#">Privacy Policy</a>.
+      </p>
+      </div>
+    </div>
+  
+  </div>
+  

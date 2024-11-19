@@ -1,52 +1,77 @@
-
-<nav-bar/>
-
+<nav-bar />
 
 <div>
+  <hlm-toaster />
 
-
-<h1 class="title py-4" style="background-color: #890000; -webkit-text-fill-color: #f7f7f7;">
-  CART PAYMENT
-</h1>
-
-<div class="container pb-5">
-  <div
-    *ngFor="let item of allProducts"
-    class="row align-items-center justify-content-between mx-5 my-3 p-3 select"
-    style="background-color: #ffecec; border-radius: 10px;"
+  <h1
+    class="title py-4"
+    style="background-color: #92736c; -webkit-text-fill-color: #fdf1f5"
   >
-    <!-- Product Image -->
-    <div class="col-3 d-flex justify-content-center ">
-      <img
-        src="{{ item.imagen_url }}"
-        class="img-fluid image-selected"
-        alt="{{ item.nombre }}"
-        style="max-height: 150px; border-radius: 10px;"
-      />
-    </div>
-    
-    <!-- Product Details -->
-    <div class="col-6">
-      <h4 class="subtitle">{{ item.nombre }}</h4>
-      <h6 class="text-b subtitle">Quantity: {{ item.cantidad }}</h6>
-      <h6 class="text-b subtitle">Price: {{ item.precio }}</h6>
-    </div>
+    CART PAYMENT
+  </h1>
 
-    <!-- Total Price -->
-    <div class="col-3 d-flex justify-content-center">
-      <h4 class="text-b subtitle">TOTAL: {{ item.precio * item.cantidad }} USD</h4>
+  <div class="container pb-5">
+    <div
+      *ngFor="let item of allProducts"
+      class="row align-items-center justify-content-center mx-5 my-3 p-3 select"
+      style="background-color: #fdf1f5; border-radius: 10px"
+    >
+      <div class="col-3 d-flex justify-content-center">
+        <img
+          src="{{ item.imagen_url }}"
+          class="img-fluid image-selected"
+          alt="{{ item.nombre }}"
+          style="max-height: 150px; border-radius: 10px"
+        />
+      </div>
+
+      <div class="col-6">
+        <h4 class="subtitle">{{ item.nombre }}</h4>
+        <h6 class="text-b subtitle">Quantity: {{ item.cantidad }}</h6>
+        <h6 class="text-b subtitle">Price: {{ item.precio }}</h6>
+        <div
+          class="input-group mt-2 justify-content-center"
+          style="align-self: center"
+        >
+          <button
+            class="btn btn-outline-secondary custom-btn"
+            type="button"
+            (click)="decreaseQuantity(item)"
+          >
+            -
+          </button>
+          <input
+            type="text"
+            class="form-control text-center custom-btn btn"
+            [value]="item.cantidad"
+            readonly
+          />
+          <button
+            class="btn btn-outline-secondary custom-btn"
+            type="button"
+            (click)="increaseQuantity(item)"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <div class="col-3 d-flex justify-content-center">
+        <h4 class="text-b subtitle">
+          TOTAL: {{ item.precio * item.cantidad }} USD
+        </h4>
+      </div>
     </div>
+<div *ngIf="allProducts.length === 0">
+
+<p class="cart">The cart is empty</p>
+</div>
+    <button class="btn btn-dark w-100" (click)="pay()">
+      <i class="bi bi-stripe"></i>
+      Stripe Payment
+      {{ finalPrice }} USD
+    </button>
   </div>
-
-<button class="btn btn-dark w-100" (click)="pay()">
-  <i class="bi bi-stripe"></i>
-   Stripe Payment 
-  {{finalPrice}} USD
-</button>
-
 </div>
 
-  
-</div>
-
-<app-footer/>
+<app-footer />

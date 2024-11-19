@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from './feature.types';
 import { baseUrl } from '../../../../environment';
-
+import { toast } from 'ngx-sonner';
+import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
 @Component({
   selector: 'feature',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HlmToasterComponent],
   templateUrl: './feature.component.html',
   styleUrls: ['./feature.component.css'],
 })
 export class FeatureComponent implements OnInit {
-  allProducts: Product[] = []; // Local state for products
+  allProducts: Product[] = []; 
+  readonly user: number = parseInt(localStorage.getItem('id') || '0', 10);
 
   async ngOnInit() {
     await this.fetchProducts();
@@ -38,7 +40,8 @@ export class FeatureComponent implements OnInit {
     }
   }
 
-  async addToCart(usuario: number, producto: string, cantidad: string) {
+  async addToCart( producto: string) {
+    if(this.user!=0)
     try {
       const response = await fetch(
         `${baseUrl}/addCartProduct`,
@@ -48,9 +51,9 @@ export class FeatureComponent implements OnInit {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id_usuario: Number(usuario),
+            id_usuario: Number(this.user),
             id_producto: Number(producto),
-            cantidad: Number(cantidad),
+            cantidad: Number(1),
           }),
           
         }
@@ -59,6 +62,7 @@ export class FeatureComponent implements OnInit {
       if (response.ok) {
         const data = await response.json();
         console.log('Product added to cart:', data);
+        this.showToast('Product added to cart')
       } else {
         const errorDetails = await response.text();
         console.error(
@@ -67,9 +71,20 @@ export class FeatureComponent implements OnInit {
           'Details:',
           errorDetails
         );
+        this.showToast('There was an error adding this item to the cart')
+
       }
     } catch (error) {
       console.error('Error occurred while adding product to cart:', error);
+      this.showToast('There was an error adding this item to the cart')
+
     }
+  }
+
+  showToast(msg:string) {
+    toast('Status cart', {
+      description: msg,
+
+    })
   }
 }
