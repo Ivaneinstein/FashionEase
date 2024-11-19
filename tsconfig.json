@@ -52,6 +52,15 @@
       ],
       "@spartan-ng/ui-toggle-helm": [
         ".\\components/ui-toggle-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-card-helm": [
+        ".\\components/ui-card-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-popover-helm": [
+        ".\\components/ui-popover-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-select-helm": [
+        ".\\components/ui-select-helm/src/index.ts"
       ]
     }
   },

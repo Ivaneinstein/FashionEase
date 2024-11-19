@@ -22,6 +22,8 @@ export class CartComponent implements OnInit {
 
   constructor(private http: HttpClient) { 
     this.finalPrice = this.getPrice();
+    console.log(this.user)
+
   }
 
   ngOnInit() {
