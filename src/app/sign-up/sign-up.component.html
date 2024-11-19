@@ -1,5 +1,6 @@
 <div class="d-flex w-full h-screen">
-    
+    <hlm-toaster />
+
     <div class="left-side w-1/2 h-full">
       <div class="flex items-center justify-center w-full h-full p-4">
         <hlm-carousel class="w-full max-w-full">
@@ -30,8 +31,35 @@
         <div class="mb-4 flex-auto" style="font-size: 2rem; font-weight: bold; align-self: center; text-align: center;">
           <img src="/logo_light.svg" class="image w-auto max-w-full h-auto" />
         </div>
-        <h2 class="align-middle mb-5 title">WELCOME TO FASHION EASE!</h2>
-        <label hlmLabel style="width: 100%" class="mb-5">
+        <h2 class="align-middle mb-2 title">WELCOME!!</h2>
+        <label hlmLabel style="width: 100%" class="mb-2">
+          <h4 class="mb-2 subtitle">Name</h4>
+          <input
+            class="w-100"
+            hlmInput
+            placeholder="Enter user name ..."
+            (change)="nameField($event)"
+            />
+        </label>
+        <label hlmLabel style="width: 100%" class="mb-2">
+          <h4 class="mb-2 subtitle">Address</h4>
+          <input
+            class="w-100"
+            hlmInput
+            placeholder="Enter user address ..."
+            (change)="addressField($event)"
+            />
+        </label>
+        <label hlmLabel style="width: 100%" class="mb-2">
+          <h4 class="mb-2 subtitle">Phone number</h4>
+          <input
+            class="w-100"
+            hlmInput
+            placeholder="Enter phone number ..."
+            (change)="phoneField($event)"
+            />
+        </label>
+        <label hlmLabel style="width: 100%" class="mb-2">
           <h4 class="mb-2 subtitle">Email</h4>
           <input
             class="w-100"
@@ -41,7 +69,8 @@
             (change)="emailField($event)"
             />
         </label>
-        <label hlmLabel style="width: 100%" class="mb-5">
+        
+        <label hlmLabel style="width: 100%" class="mb-2">
           <h4 class="mb-2 subtitle">Password</h4>
           <input
             class="w-100"
@@ -52,12 +81,15 @@
   
           />
         </label>
+        <p class=" small text-center mb-2">
+            Already have an account? <a class="mini" href="/SignUp">Sign in here</a>.
+        </p>
         <button
           hlmBtn
           variant="outline"
           style="width: 100%"
           class="rounded-pill my-2"
-          (click)="SignIn()"
+          (click)="SignUp()"
         >
           Sign up
         </button>

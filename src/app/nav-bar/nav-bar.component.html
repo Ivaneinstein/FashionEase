@@ -1,32 +1,47 @@
-
-<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body " data-bs-theme="dark">
+<nav
+  class="navbar navbar-expand-lg bg-dark border-bottom border-body"
+  data-bs-theme="dark"
+>
   <div class="d-flex justify-content-between align-items-center p-2 w-100">
-    <div class="pe-2 d-lg-none">
-      <button class="btn btn-outline-light" type="button">
-        <i class="bi bi-layout-sidebar-inset"></i>
-      </button>
-    </div>
+    
 
     <a class="navbar-brand d-flex align-items-center collapse" href="/">
-      <img src="/logo_light.svg" alt="Logo" class="d-inline-block align-text-top sizeLogo" />
+      <img
+        src="/logo_light.svg"
+        alt="Logo"
+        class="d-inline-block align-text-top sizeLogo"
+      />
     </a>
 
-    <form class="d-flex flex-grow-1 mx-1" role="search">
-      <div class="input-group w-75">
-        <input class="form-control custom-search" type="search" placeholder="Search..." aria-label="Search..." />
-        <button class="btn btn-outline-light" type="submit">
-          <i class="bi bi-search"></i>
-        </button>
-      </div>
-    </form>
+    <div class="d-flex flex-grow-1 mx-1 space-x-3 search-text" role="search">
+      <button brnToggle hlm (click)="toggleItalic()" [class]="{ 'toggled': isToggled }">
+        <hlm-icon size="lg" name="lucideSearch" style="color: white;" class=" mr-5"></hlm-icon>
+        <h4 class="search-text">
+          
+          Search ...
+        </h4>
+      </button>
+    </div>
+    
+
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="hombreDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="hombreDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Hombre
           </a>
-          <div class="dropdown-menu custom-dropdown" aria-labelledby="hombreDropdown">
+          <div
+            class="dropdown-menu custom-dropdown"
+            aria-labelledby="hombreDropdown"
+          >
             <div class="content-section">
               <ul class="content-list">
                 <li>Playeras</li>
@@ -38,11 +53,20 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="mujerDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="mujerDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Mujer
           </a>
-          <div class="dropdown-menu custom-dropdown" aria-labelledby="mujerDropdown">
+          <div
+            class="dropdown-menu custom-dropdown"
+            aria-labelledby="mujerDropdown"
+          >
             <div class="content-section">
               <ul class="content-list">
                 <li>Vestidos</li>
@@ -53,11 +77,20 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="ninoDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="ninoDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Niño
           </a>
-          <div class="dropdown-menu custom-dropdown" aria-labelledby="ninoDropdown">
+          <div
+            class="dropdown-menu custom-dropdown"
+            aria-labelledby="ninoDropdown"
+          >
             <div class="content-section">
               <ul class="content-list">
                 <li>Camisetas</li>
@@ -70,20 +103,136 @@
       </ul>
     </div>
 
-    <div class="d-flex align-items-center ms-3" >
+    <div class="d-flex align-items-center ms-3">
       <a class="btn btn-outline-light" routerLink="/cart">
         <i class="bi bi-cart-check"> </i>
       </a>
-      <span class="top-0 start-22 translate-middle badge rounded-pill bg-danger">
+      <span
+        class="top-0 start-22 translate-middle badge rounded-pill bg-danger"
+      >
         3
       </span>
     </div>
     <div class="d-flex align-items-center ms-3">
-      <button class="btn btn-outline-light " routerLink="/login">
-        <i class="bi bi-person-gear"></i>
-      </button>
-      <!-- TODO: change the button for the profile picture when sign up's done -->
+      <div class="d-flex align-items-center ms-3">
+        <brn-hover-card>
+          <button hlmBtn variant="link" brnHoverCardTrigger>
+            
+
+            <hlm-icon size="lg" name="lucideUserCog" style="color: white;"></hlm-icon>
+
+          </button>
+          <hlm-hover-card-content *brnHoverCardContent class="w-80 bg-dark text-light">
+            <div class="flex justify-between space-x-4">
+              <hlm-avatar variant="small" id="avatar-small">
+                <img
+                  src="/logo_light.svg"
+                  alt="fashionease-user"
+                  hlmAvatarImage
+                />
+
+              </hlm-avatar>
+              <div class="space-y-1">
+                <h4 class="text-sm font-semibold">{{ user }}</h4>
+                <p class="text-sm">
+                  Thank you for using Fashion Ease.
+                </p>
+                <span class="text-xs text-muted-foreground">Everything you need in one place.</span>
+                <div class="flex items-center pt-2 space-x-2">
+                  <button hlmBtn variant="outline" (click)="logout()">Log out</button>
+                  <button hlmBtn variant="outline" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Edit profile</button>
+
+                </div>
+              </div>
+            </div>
+          </hlm-hover-card-content>
+        </brn-hover-card>
+      </div>
     </div>
   </div>
+  
+  
 </nav>
 
+
+<div class="offcanvas offcanvas-end bg-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    <div class="d-flex w-full h-auto">  
+      
+      <div
+        class=" d-flex justify-content-center align-items-center w-full h-full"
+      >
+        <div class="login-box w-full flex-col max-w-xs">
+          
+          <h2 class="align-middle mb-2 title">EDIT PROFILE!!</h2>
+          <label hlmLabel style="width: 100%" class="mb-2">
+            <h4 class="mb-2 subtitle">Name</h4>
+            <input
+              class="w-100"
+              hlmInput
+              placeholder="Enter user name ..."
+              (change)="nameField($event)"
+              />
+          </label>
+          <label hlmLabel style="width: 100%" class="mb-2">
+            <h4 class="mb-2 subtitle">Address</h4>
+            <input
+              class="w-100"
+              hlmInput
+              placeholder="Enter user address ..."
+              (change)="addressField($event)"
+              />
+          </label>
+          <label hlmLabel style="width: 100%" class="mb-2">
+            <h4 class="mb-2 subtitle">Phone number</h4>
+            <input
+              class="w-100"
+              hlmInput
+              placeholder="Enter phone number ..."
+              (change)="phoneField($event)"
+              />
+          </label>
+          <label hlmLabel style="width: 100%" class="mb-2">
+            <h4 class="mb-2 subtitle">Email</h4>
+            <input
+              class="w-100"
+              hlmInput
+              type="email"
+              placeholder="Enter email address ..."
+              (change)="emailField($event)"
+              />
+          </label>
+          
+          <label hlmLabel style="width: 100%" class="mb-2">
+            <h4 class="mb-2 subtitle">Password</h4>
+            <input
+              class="w-100"
+              hlmInput
+              type="password"
+              placeholder="Enter password ..."
+              (change)="passwordField($event)"
+    
+            />
+          </label>
+          <button
+            hlmBtn
+            variant="outline"
+            style="width: 100%"
+            class="rounded-pill my-2 btn"
+            (click)="SignUp()
+            "
+          >
+            Accept changes
+          </button>
+
+        </div>
+      </div>
+    
+    </div>
+    
+  </div>
+</div>

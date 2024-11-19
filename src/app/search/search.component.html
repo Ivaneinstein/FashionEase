@@ -1,0 +1,63 @@
+
+<hlm-toaster />
+
+<nav-bar></nav-bar>
+
+<h1
+  class="title py-4"
+  style="background-color: #dbd7d2; -webkit-text-fill-color: #b87333"
+>
+  SEARCH
+</h1>
+
+<div
+  class="row justify-content-between g-4 pb-5 ps-5 pe-5"
+>
+
+<label hlmLabel style="width: 100%" class="mb-2">
+    <h4 class="mb-2 subtitle">Search and Filter products by their name</h4>
+    <input
+      class="w-100"
+      hlmInput
+      type="email"
+      placeholder="Name of a product ..."
+      (change)="searchField($event)"
+      />
+  </label>
+
+  <div
+    *ngFor="let item of filterProducts"
+    class="col-12 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center p-4"
+  >
+    <div class="card" style="background-color: #f7f7f7">
+      <img
+        src="{{ item.imgPreview }}"
+        class="card-img-top"
+        alt="{{ item.imgPreview }}"
+      />
+      <div class="card-body text">
+        <h4 class="card-title subtitle">{{ item.name }}</h4>
+        <h6 class="card-text text-b subtitle">{{ item.price }} USD</h6>
+      </div>
+
+      <div class="button-card">
+        <div class="my-3 mx-5 d-flex d-grid justify-content-between">
+          
+          <button
+            class="btn btn-light w-100 button-bounce"
+            type="button"
+            (click)="addToCart( item.id) "
+          >
+            Add <i class="bi bi-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="filterProducts.length === 0">
+    <p class="cart">No products found, Try searching for something else!</p>
+
+  </div>
+</div>
+<app-footer />

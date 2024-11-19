@@ -112,3 +112,10 @@ footer {
 .bi-linkedin:hover {
   color: #0077b5; 
 }
+
+ .payment-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}

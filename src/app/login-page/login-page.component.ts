@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
 import { baseUrl } from '../../environment';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
-
+import { toast } from 'ngx-sonner';
+import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
 @Component({
   selector: 'login-page',
   standalone: true,
@@ -22,7 +23,7 @@ import { Router, RouterLink } from '@angular/router';
     HlmCarouselComponent,
     HlmCarouselContentComponent,
     HlmCarouselItemComponent,
-    HttpClientModule,
+    HttpClientModule,HlmToasterComponent
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css',
@@ -46,12 +47,16 @@ export class LoginPageComponent {
           if (response.rol == 'cliente') {
             this.router.navigate(['/']);
             localStorage.setItem("id", response.id_usuario)
+            this.showToast('Login successfully');
+
           } else {
             this.router.navigate(['/admin']);
           }
         },
         (error: any) => {
           console.log(error);
+          this.showToast('There was an error loggin in');
+
         }
       );
 
@@ -66,5 +71,11 @@ export class LoginPageComponent {
   emailField(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     this.email = inputElement.value;
+  }
+
+  showToast(msg: string) {
+    toast('Status Sign In', {
+      description: msg,
+    });
   }
 }

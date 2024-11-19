@@ -103,3 +103,84 @@
   padding: 20px; /* Espacio interno */
   border-radius: 8px; /* Borde redondeado opcional */
 }
+
+
+
+
+.rounded {
+  border-radius: 30%;
+}
+
+.login-box input {
+  background-color: #0c0c0c;
+  color: white !important;
+}
+
+.login-box .btn {
+  background-color: #ffffff;
+  color: black;
+}
+
+.login-box .btn:hover {
+  background-color: #333;
+  color: white;
+
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.title {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  align-self: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subtitle {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;  color: white;
+
+}
+
+.mini {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;  color: white;
+
+}
+
+
+.search-text {
+  font-family: "Bodoni Moda", serif;
+  font-size: 25px;
+  font-weight:600;
+  font-style: italic;  color: white;
+
+}
+.search-text:hover {
+  font-family: "Bodoni Moda", serif;
+  font-size: 30px;
+
+  font-weight: 300;
+  font-style: italic;  color: rgb(249, 239, 239);
+
+}
+button.toggled {
+  background-color: #333;
+  border: 2px solid white; 
+}

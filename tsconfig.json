@@ -40,6 +40,18 @@
       ],
       "@spartan-ng/ui-sonner-helm": [
         ".\\components/ui-sonner-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-avatar-helm": [
+        ".\\components/ui-avatar-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-hovercard-helm": [
+        ".\\components/ui-hovercard-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-dialog-helm": [
+        ".\\components/ui-dialog-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-toggle-helm": [
+        ".\\components/ui-toggle-helm/src/index.ts"
       ]
     }
   },
