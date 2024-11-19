@@ -121,7 +121,7 @@ export class CartComponent implements OnInit {
       console.log(item.id_producto);
   
       this.http.delete<any>(
-        `http://localhost:8080/removeCart/${this.user}/${item.id_producto}`
+        `${baseUrl}/removeCart/${this.user}/${item.id_producto}`
       ).subscribe(
         (response: any) => {
           console.log('Item removed from cart:', response);
