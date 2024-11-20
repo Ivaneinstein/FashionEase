@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
-import { baseUrl } from '../../environment';
+import { baseUrl, localhost } from '../../environment';
 import { FooterComponent } from '../footer/footer.component';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { toast } from 'ngx-sonner';
@@ -70,45 +70,23 @@ export class CartComponent implements OnInit {
       console.error('Error fetching products:', error);
     }
   }
-
-  pay() {
+  async pay() {
     const userId = this.user;
-
-    this.http.post<any>(
-      `${baseUrl}/create-checkout-session/${userId}`,
-      {}
-    ).subscribe(
-      (response: any) => {
-        if (response.url) {
-          window.location.href = response.url;
-        } 
-      },
-      (error: any) => {
-        console.error('Error initiating payment process:', error);
+  
+    try {
+      const response = await this.http.post<any>(
+        `${baseUrl}/create-checkout-session/${userId}`,
+        {}
+      ).toPromise();
+  
+      if (response.url) {
+        window.location.href = response.url;
       }
-    );
+    } catch (error) {
+      console.error("Error initiating payment process:", error);
+    }
   }
-
-  downloadReceipt() {
-    const userId = this.user;
-
-    this.http.get(
-      `${baseUrl}/receipt/${userId}`,
-      { responseType: 'blob' }
-    ).subscribe(
-      (response: Blob) => {
-        const blob = new Blob([response], { type: 'application/xml' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'receipt.xml';
-        a.click();
-        window.URL.revokeObjectURL(url);
-      },
-      (error: any) => {
-      }
-    );
-  }
+ 
 
   increaseQuantity(item: any) {
     item.cantidad++;

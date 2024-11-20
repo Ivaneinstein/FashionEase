@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<receipt>
+  <items>
+    <item>
+      <name>Chaqueta de Invierno Hombre</name>
+      <price>80.00</price>
+      <quantity>1</quantity>
+    </item>
+  </items>
+  <total>80</total>
+</receipt>
