@@ -5,7 +5,15 @@
     class="left-side d-flex justify-content-center align-items-center w-1/2 h-full"
   >
     <div class="login-box w-full flex-col max-w-xs">
-      <div class="mb-4 flex-auto" style="font-size: 2rem; font-weight: bold; align-self: center; text-align: center;">
+      <div
+        class="mb-4 flex-auto"
+        style="
+          font-size: 2rem;
+          font-weight: bold;
+          align-self: center;
+          text-align: center;
+        "
+      >
         <img src="/logo_light.svg" class="image w-auto max-w-full h-auto" />
       </div>
       <h2 class="align-middle mb-5 title">WELCOME BACK!</h2>
@@ -17,11 +25,12 @@
           type="email"
           placeholder="Enter email address ..."
           (change)="emailField($event)"
-          />
+        />
       </label>
-      <p class=" small text-center mb-2">
-        Don't have an account, create an account <a class="mini" href="/SignUp">here</a>.
-    </p>
+      <p class="small text-center mb-2">
+        Don't have an account, create an account
+        <a class="mini" href="/SignUp">here</a>.
+      </p>
       <label hlmLabel style="width: 100%" class="mb-2">
         <h4 class="mb-2 subtitle">Password</h4>
         <input
@@ -30,12 +39,14 @@
           type="password"
           placeholder="Enter password ..."
           (change)="passwordField($event)"
-
         />
       </label>
-      <p class=" mini text-center">
-        Forgot password? <a class="mini" href="/login">Click to sent a recover password email.</a>.
-    </p>
+      <p class="mini text-center">
+        Forgot password? Fill the email field and
+        <a class="mini" (click)="recoverPassword()"
+          >Click here to sent a recover password email.</a
+        >.
+      </p>
       <button
         hlmBtn
         variant="outline"
@@ -45,9 +56,11 @@
       >
         Sign in
       </button>
-      <p class=" small text-center">
-        By continuing, you agree to our <a class="subtitle" href="#">Terms of Service</a> and <a class="mini" href="#">Privacy Policy</a>.
-    </p>
+      <p class="small text-center">
+        By continuing, you agree to our
+        <a class="subtitle" href="#">Terms of Service</a> and
+        <a class="mini" href="#">Privacy Policy</a>.
+      </p>
     </div>
   </div>
 

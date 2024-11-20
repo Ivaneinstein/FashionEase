@@ -19,12 +19,21 @@ import { HlmInputDirective } from '@spartan-ng/ui-input-helm';
 import { HlmToggleDirective } from '@spartan-ng/ui-toggle-helm';
 import { BrnToggleDirective } from '@spartan-ng/ui-toggle-brain';
 import { baseUrl, localhost } from '../../environment';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpHeaders,
+} from '@angular/common/http';
+import { toast } from 'ngx-sonner';
+import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'nav-bar',
   standalone: true,
-  imports: [
+  imports: [CommonModule,
     RouterLink,
+    HlmToasterComponent,
     BrnToggleDirective,
     HlmToggleDirective,
     HlmAvatarComponent,
@@ -93,7 +102,7 @@ export class NavBarComponent implements OnInit {
 
     console.log(userData);
 
-    this.http.put(`${localhost}/updateUser`, userData).subscribe(
+    this.http.put(`${baseUrl}/updateUser`, userData).subscribe(
       (response: any) => {
         console.log(response);
         this.router.navigate(['/']);
@@ -127,18 +136,69 @@ export class NavBarComponent implements OnInit {
   getInfoUser() {
     const userId = this.user;
 
-    this.http.get(`${localhost}/getUserInfo/${userId}`, {}).subscribe(
+    this.http.get(`${baseUrl}/getUserInfo/${userId}`, {}).subscribe(
       (response: any) => {
-        (response);
-        this.name = response.nombre
-        this.email = response.correo
-        this.password = response.contraseña
-        this.address = response.direccion
-        this.phone = response.telefono
+        response;
+        this.name = response.nombre;
+        this.email = response.correo;
+        this.password = response.contraseña;
+        this.address = response.direccion;
+        this.phone = response.telefono;
       },
       (error: any) => {
         console.log(error.error);
       }
     );
+  }
+  showToast(msg: string) {
+    toast('Status Sign In', {
+      description: msg,
+    });
+  }
+
+  recoverPassword() {
+    const password = this.generateRandomPassword();
+
+    const body = {
+      txt: `Your one time password recover is: ${password}\nPlease dont forget to change your password on User Profile to prevent forgetting it again.\n\nFashion Ease Corporation.`,
+      sender: this.email,
+    };
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    this.http.post(`${baseUrl}/sendTextEmail`, body, { headers }).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.showToast('Email sent successfully');
+      },
+      (error: any) => {
+        console.log(error);
+        this.showToast('There was an error sending email');
+      }
+    );
+
+    this.http
+      .put(`${baseUrl}/updatePassword/${this.email}/${password}`, {})
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
+  }
+
+  generateRandomPassword(): string {
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+    let password = '';
+    for (let i = 0; i < 8; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      password += characters[randomIndex];
+    }
+    return password;
   }
 }

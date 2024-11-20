@@ -8,8 +8,12 @@ import {
   HlmCarouselItemComponent,
 } from '@spartan-ng/ui-carousel-helm';
 import { CommonModule } from '@angular/common';
-import { baseUrl } from '../../environment';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { baseUrl, localhost } from '../../environment';
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { toast } from 'ngx-sonner';
 import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
@@ -23,7 +27,8 @@ import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
     HlmCarouselComponent,
     HlmCarouselContentComponent,
     HlmCarouselItemComponent,
-    HttpClientModule,HlmToasterComponent
+    HttpClientModule,
+    HlmToasterComponent,
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css',
@@ -46,9 +51,8 @@ export class LoginPageComponent {
         (response: any) => {
           if (response.rol == 'cliente') {
             this.router.navigate(['/']);
-            localStorage.setItem("id", response.id_usuario)
+            localStorage.setItem('id', response.id_usuario);
             this.showToast('Login successfully');
-
           } else {
             this.router.navigate(['/admin']);
           }
@@ -56,12 +60,8 @@ export class LoginPageComponent {
         (error: any) => {
           console.log(error);
           this.showToast('There was an error loggin in');
-
         }
       );
-
-
-
   }
 
   passwordField(event: Event) {
@@ -77,5 +77,51 @@ export class LoginPageComponent {
     toast('Status Sign In', {
       description: msg,
     });
+  }
+
+  recoverPassword() {
+    const password = this.generateRandomPassword();
+
+    const body = {
+      txt: `Your one time password recover is: ${password}\nPlease dont forget to change your password on User Profile to prevent forgetting it again.\n\nFashion Ease Corporation.`,
+      sender: this.email,
+    };
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    this.http.post(`${baseUrl}/sendTextEmail`, body, { headers }).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.showToast('Email sent successfully');
+      },
+      (error: any) => {
+        console.log(error);
+        this.showToast('There was an error sending email');
+      }
+    );
+
+    this.http
+      .put(`${baseUrl}/updatePassword/${this.email}/${password}`, {})
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+        },
+        (error: any) => {
+          console.log(error);
+        }
+      );
+  }
+
+  generateRandomPassword(): string {
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+    let password = '';
+    for (let i = 0; i < 8; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      password += characters[randomIndex];
+    }
+    return password;
   }
 }

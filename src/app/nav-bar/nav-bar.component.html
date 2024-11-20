@@ -3,8 +3,6 @@
   data-bs-theme="dark"
 >
   <div class="d-flex justify-content-between align-items-center p-2 w-100">
-    
-
     <a class="navbar-brand d-flex align-items-center mr-5" href="/">
       <img
         src="/logo_light.svg"
@@ -13,20 +11,28 @@
       />
     </a>
 
-
-    <div class="d-flex flex-grow-1  mx-1 space-x-3 search-text" role="search">
-      <button brnToggle hlm (click)="toggleItalic()" [class]="{ 'toggled': isToggled }">
-        <hlm-icon size="lg" name="lucideSearch" style="color: white;" class=" mr-5"></hlm-icon>
-        <h4 class="search-text">
-          
-          Search
-        </h4>
+    <div class="d-flex flex-grow-1 mx-1 space-x-3 search-text" role="search">
+      <button
+        brnToggle
+        hlm
+        (click)="toggleItalic()"
+        [class]="{ toggled: isToggled }"
+      >
+        <hlm-icon
+          size="lg"
+          name="lucideSearch"
+          style="color: white"
+          class="mr-5"
+        ></hlm-icon>
+        <h4 class="search-text">Search</h4>
       </button>
     </div>
-    
 
-
-    <div class="flex-auto flex-row d-flex" style="align-items: center;" id="navbarNav">
+    <div
+      class="flex-auto flex-row d-flex"
+      style="align-items: center"
+      id="navbarNav"
+    >
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a
@@ -118,30 +124,48 @@
       <div class="d-flex align-items-center ms-3">
         <brn-hover-card>
           <button hlmBtn variant="link" brnHoverCardTrigger>
-            
-
-            <hlm-icon size="lg" name="lucideUserCog" style="color: white;"></hlm-icon>
-
+            <hlm-icon
+              size="lg"
+              name="lucideUserCog"
+              style="color: white"
+            ></hlm-icon>
           </button>
-          <hlm-hover-card-content *brnHoverCardContent class="w-80 bg-dark text-light">
+          <hlm-hover-card-content
+            *brnHoverCardContent
+            class="w-80 bg-dark text-light"
+          >
             <div class="flex justify-between space-x-4">
-              <hlm-avatar variant="small" id="avatar-small">
-                <img
-                  src="/logo_light.svg"
-                  hlmAvatarImage
-                />
-
+              <hlm-avatar variant="medium" id="avatar-small">
+                <img src="Banner1.png" alt="spartan logo. Resembling a spartanic shield" hlmAvatarImage />
               </hlm-avatar>
               <div class="space-y-1">
-                <h4 class="text-sm font-semibold">{{ user }}</h4>
-                <p class="text-sm">
-                  Thank you for using Fashion Ease.
-                </p>
-                <span class="text-xs text-muted-foreground">Everything you need in one place.</span>
-                <div class="flex items-center pt-2 space-x-2">
-                  <button hlmBtn variant="outline" (click)="logout()">Log out</button>
-                  <button hlmBtn variant="outline" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Edit profile</button>
-
+                <h4 class="text-sm font-semibold">{{ name || 'Not logged in'}}</h4>
+                <p class="text-sm">Thank you for using Fashion Ease.</p>
+                <span class="text-xs text-muted-foreground"
+                  >Everything you need in one place.</span
+                >
+                <div *ngIf="name === null" class="flex items-center pt-2 space-x-2">
+                  <button hlmBtn variant="outline" (click)="logout()">
+                    Log out
+                  </button>
+                  <button
+                    hlmBtn
+                    variant="outline"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBothOptions"
+                    aria-controls="offcanvasWithBothOptions"
+                  >
+                    Edit profile
+                  </button>
+                </div>
+                <div *ngIf="name !== null" class="flex items-center pt-2 space-x-2">
+                  <button hlmBtn variant="outline" routerLink="/login">
+                    Log In
+                  </button>
+                  <button hlmBtn variant="outline" routerLink="/SignUp">
+                    Sign Up
+                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -150,24 +174,29 @@
       </div>
     </div>
   </div>
-  
-  
 </nav>
 
-
-<div class="offcanvas offcanvas-end bg-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div
+  class="offcanvas offcanvas-end bg-dark"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasWithBothOptions"
+  aria-labelledby="offcanvasWithBothOptionsLabel"
+>
   <div class="offcanvas-header">
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
   </div>
   <div class="offcanvas-body">
-
-    <div class="d-flex w-full h-auto">  
-      
+    <div class="d-flex w-full h-auto">
       <div
-        class=" d-flex justify-content-center align-items-center w-full h-full"
+        class="d-flex justify-content-center align-items-center w-full h-full"
       >
         <div class="login-box w-full flex-col max-w-xs">
-          
           <h2 class="align-middle mb-2 title">EDIT PROFILE!!</h2>
           <label hlmLabel style="width: 100%" class="mb-2">
             <h4 class="mb-2 subtitle">Name</h4>
@@ -176,8 +205,8 @@
               hlmInput
               placeholder="Enter user name ..."
               (change)="nameField($event)"
-              value="{{name}}"
-              />
+              value="{{ name }}"
+            />
           </label>
           <label hlmLabel style="width: 100%" class="mb-2">
             <h4 class="mb-2 subtitle">Address</h4>
@@ -186,9 +215,8 @@
               hlmInput
               placeholder="Enter user address ..."
               (change)="addressField($event)"
-              value="{{address}}"
-
-              />
+              value="{{ address }}"
+            />
           </label>
           <label hlmLabel style="width: 100%" class="mb-2">
             <h4 class="mb-2 subtitle">Phone number</h4>
@@ -197,8 +225,8 @@
               hlmInput
               placeholder="Enter phone number ..."
               (change)="phoneField($event)"
-              value="{{phone}}"
-              />
+              value="{{ phone }}"
+            />
           </label>
           <label hlmLabel style="width: 100%" class="mb-2">
             <h4 class="mb-2 subtitle">Email</h4>
@@ -208,12 +236,10 @@
               type="email"
               placeholder="Enter email address ..."
               (change)="emailField($event)"
-              value="{{email}}"
-
-              />
-
+              value="{{ email }}"
+            />
           </label>
-          
+
           <label hlmLabel style="width: 100%" class="mb-2">
             <h4 class="mb-2 subtitle">Password</h4>
             <input
@@ -222,9 +248,7 @@
               type="password"
               placeholder="Enter password ..."
               (change)="passwordField($event)"
-              value="{{password}}"
-
-    
+              value="{{ password }}"
             />
           </label>
           <button
@@ -232,20 +256,20 @@
             variant="outline"
             style="width: 100%"
             class="rounded-pill my-2 btn"
-            (click)="SignUp()
-            "
+            (click)="SignUp()"
           >
             Accept changes
           </button>
 
-          <p class=" mini text-center">
-            Forgot password? <a class="mini" href="/login">Click to sent a recover password email.</a>.
-        </p>
-
+          <p class="mini text-center">
+            Forgot password?
+            <a class="mini" (click)="recoverPassword()"
+              >Click to sent a recover password email.</a
+            >.
+          </p>
         </div>
       </div>
-    
     </div>
-    
   </div>
+  <hlm-toaster />
 </div>
