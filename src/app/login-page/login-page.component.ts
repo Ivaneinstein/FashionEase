@@ -35,13 +35,25 @@ import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
 })
 export class LoginPageComponent {
   constructor(private http: HttpClient, private router: Router) {}
+  
   carouselItems: string[] = ['/Banner1.png', '/Banner2.png', '/Banner3.png'];
-  email: string = '';
-  password: string = '';
-
   trackById(index: number, item: string): string {
     return item;
   }
+
+
+  email: string = '';
+  password: string = '';
+
+  passwordField(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.password = inputElement.value;
+  }
+  emailField(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.email = inputElement.value;
+  }
+  
 
   SignIn() {
     console.log(`email: ${this.email}, password ${this.password}`);
@@ -64,14 +76,7 @@ export class LoginPageComponent {
       );
   }
 
-  passwordField(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    this.password = inputElement.value;
-  }
-  emailField(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    this.email = inputElement.value;
-  }
+  
 
   showToast(msg: string) {
     toast('Status Sign In', {

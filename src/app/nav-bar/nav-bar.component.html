@@ -63,7 +63,7 @@
                 <span class="text-xs text-muted-foreground"
                   >Everything you need in one place.</span
                 >
-                <div *ngIf="name === null" class="flex items-center pt-2 space-x-2">
+                <div *ngIf="name.length > 0" class="flex items-center pt-2 space-x-2">
                   <button hlmBtn variant="outline" (click)="logout()">
                     Log out
                   </button>
@@ -77,7 +77,7 @@
                     Edit profile
                   </button>
                 </div>
-                <div *ngIf="name !== null" class="flex items-center pt-2 space-x-2">
+                <div *ngIf="name.length === 0" class="flex items-center pt-2 space-x-2">
                   <button hlmBtn variant="outline" routerLink="/login">
                     Log In
                   </button>
