@@ -1,0 +1,105 @@
+<hlm-toaster />
+
+<div class="flex flex-wrap justify-around gap-4">
+  <section class="w-80" hlmCard>
+    <div hlmCardHeader>
+      <h3 hlmCardTitle>Create new product</h3>
+      <p hlmCardDescription>
+        Add a product to your page as easy as filling this form.
+      </p>
+    </div>
+    <p hlmCardContent>
+      <label class="block mb-2" hlmLabel>
+        Image Link
+        <input
+          class="mt-1.5 w-full"
+          placeholder="Link image product..."
+          hlmInput
+          [(ngModel)]="image"
+        />
+      </label>
+      <label class="block mb-2" hlmLabel>
+        Name
+        <input
+          class="mt-1.5 w-full"
+          placeholder="Name of your new product..."
+          hlmInput
+          [(ngModel)]="name"
+        />
+      </label>
+      <label class="block mb-2" hlmLabel>
+        Select the category of the product
+        <select
+          class="mb-1.5 block form-select w-full mt-1.5 justify-between"
+          hlmLabel
+          id="edit-profile"
+          variant="outline"
+          brnPopoverTrigger
+          hlmBtn
+          [(ngModel)]="category"
+        >
+          <option value="1">MEN</option>
+          <option value="2">WOMEN</option>
+        </select>
+      </label>
+
+      <label class="block mb-2" hlmLabel>
+        Quantity
+        <input
+          class="mt-1.5 w-full"
+          type="number"
+          placeholder="Quantity..."
+          hlmInput
+          [(ngModel)]="qty"
+        />
+      </label>
+      <label class="block mb-2" hlmLabel>
+        Price
+        <input
+          class="mt-1.5 w-full"
+          type="number"
+          placeholder="Price..."
+          hlmInput
+          [(ngModel)]="price"
+        />
+      </label>
+    </p>
+    <div hlmCardFooter class="justify-center">
+      <button
+        hlmBtn
+        class="bg-slate-200 hover:bg-white"
+        style="width: 270px"
+        variant="outline"
+        (click)="add_product()"
+      >
+        Create
+      </button>
+    </div>
+  </section>
+
+  <div class="bg-white" hlmCard>
+    <div hlmCardHeader>
+      <h3 hlmCardTitle>Preview your product</h3>
+      <p hlmCardDescription>
+        View how the product is going to be seem on the page
+      </p>
+    </div>
+    <div class="d-flex justify-content-center p-4">
+      <div class="card" style="background-color: #f7f7f7">
+        <img src="{{ image }}" class="card-img-top" alt="{{ image }}" />
+        <div class="card-body text">
+          <h4 class="card-title subtitle">{{ name }}</h4>
+          <h6 class="card-text text-b subtitle">{{ price }} USD</h6>
+        </div>
+
+        <div class="button-card">
+          <div class="my-3 mx-5 d-flex d-grid justify-content-between">
+            <button class="btn btn-light w-100 button-bounce" type="button">
+              Add <i class="bi bi-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

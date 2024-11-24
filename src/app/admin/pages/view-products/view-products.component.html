@@ -1,0 +1,180 @@
+<div class="bg-white m-4 p-4 rounded shadow">
+  <div class="container">
+    <table class="w-full border-collapse">
+      <thead>
+        <tr class="bg-gray-100 text-left">
+          <th class="p-2 border-b">Image</th>
+          <th class="p-2 border-b">Name</th>
+          <th class="p-2 border-b">Stock</th>
+          <th class="p-2 border-b">Price</th>
+          <th class="p-2 border-b" style="text-align: center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of allProducts" class="hover:bg-gray-50">
+          <td class="p-2 border-b">
+            <button>
+              <img
+                src="{{ item.image }}"
+                alt="{{ item.image }}"
+                class="w-12 h-auto rounded"
+              />
+            </button>
+          </td>
+          <td class="p-2 border-b title">{{ item.name }}</td>
+          <td class="p-2 border-b subtitle">{{ item.qty }}</td>
+          <td class="p-2 border-b subtitle">${{ item.price }}</td>
+          <td class="p-2 border-b flex gap-2 justify-center">
+            <hlm-sheet>
+              <button
+                hlmBtn
+                id="top"
+                brnSheetTrigger
+                side="top"
+                variant="default"
+                (click)="setValue(item)"
+              >
+                Edit
+              </button>
+              <hlm-sheet-content *brnSheetContent="let ctx">
+                <div
+                  class="flex justify-center gap-6 p-1"
+                  style="height: 500px"
+                >
+                  <div
+                    class="bg-white p-4 rounded shadow-sm flex justify-center items-center"
+                    hlmCard
+                  >
+                    <div
+                      class="card"
+                      style="
+                        height: 100%;
+                        width: 80%;
+                        display: flex;
+                        justify-content: center;
+                      "
+                    >
+                      <img
+                        src={{imageEdit}}
+                        class="card-img-top"
+                        alt={{imageEdit}}
+                      />
+                      <div class="card-body text">
+                        <h4 class="card-title subtitle">{{nameEdit}}</h4>
+                        <h6 class="card-text text-b subtitle">${{priceEdit}}</h6>
+                      </div>
+                      <div class="button-card">
+                        <div class="my-3 mx-5 d-flex justify-content-between">
+                          <button
+                            class="btn btn-light w-100 button-bounce"
+                            type="button"
+                          >
+                            Add <i class="bi bi-cart-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="bg-white p-4 rounded shadow-sm flex justify-center items-center"
+                  >
+                    <div class="w-full max-w-md">
+                      <h3 style="text-align: center" hlmSheetTitle>
+                        Edit Product
+                      </h3>
+                      <p hlmSheetDescription style="text-align: center">
+                        Make changes to your product here.
+                      </p>
+
+                      <div class="grid grid-cols-2 gap-2 mb-1">
+                        <label hlmLabel for="username" class="text-right"
+                          >Image Link</label
+                        >
+                        <input
+                          hlmInput
+                          id="username"
+                          placeholder
+                          [(ngModel)]="imageEdit"
+                          class="col-span-1 p-2 border border-gray-300 rounded"
+                        />
+                        <label hlmLabel for="email" class="text-right"
+                          >Name</label
+                        >
+                        <input
+                          hlmInput
+                          id="email"
+                          [(ngModel)]="nameEdit"
+                          placeholder="Name of your new product..."
+                          class="col-span-1 p-2 border border-gray-300 rounded"
+                        />
+                        <label hlmLabel for="phone" class="text-right"
+                          >Select the category of the product
+                        </label>
+
+                        <select
+                          class="mb-1.5 block form-select w-full mt-1.5 justify-between"
+                          hlmLabel
+                          id="edit-profile"
+                          variant="outline"
+                          brnPopoverTrigger
+                          hlmBtn
+                          [(ngModel)]="categoryEdit"
+                        >
+                          <option value="1">MEN</option>
+                          <option value="2">WOMEN</option>
+                        </select>
+                        <label hlmLabel for="address" class="text-right"
+                          >Quantity</label
+                        >
+                        <input
+                          hlmInput
+                          id="address"
+                          placeholder="Quantity..."
+                          [(ngModel)]="qtyEdit"
+                          type="number"
+                          class="col-span-1 p-2 border border-gray-300 rounded"
+                        />
+                        <label hlmLabel for="city" class="text-right"
+                          >Price</label
+                        >
+                        <input
+                          hlmInput
+                          id="city"
+                          type="number"
+                          placeholder="Price..."
+                          class="col-span-1 p-2 border border-gray-300 rounded"
+                          [(ngModel)]="priceEdit"
+                        />
+                      </div>
+
+                      <hlm-sheet-footer class="justify-center">
+                        <button
+                          hlmBtn
+                          variant="outline"
+                          class="bg-dark hover:bg-slate-50"
+                          style="width: 250px"
+                          type="submit"
+                          (click)="updateProduct()"
+                        >
+                          <p
+                            class="title mt-3"
+                            style="color: white; font-size: 20px"
+                          >
+                            Save Changes
+                          </p>
+                        </button>
+                      </hlm-sheet-footer>
+                    </div>
+                  </div>
+                </div>
+              </hlm-sheet-content>
+            </hlm-sheet>
+
+            <button hlmBtn variant="destructive" (click)="deleteProduct(item.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
