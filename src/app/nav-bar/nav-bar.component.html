@@ -28,16 +28,29 @@
       </button>
     </div>
 
-
     <div class="d-flex align-items-center ms-3">
-      <a class="btn btn-outline-light" routerLink="/cart">
-        <i class="bi bi-cart-check"> </i>
+      <a class="" routerLink="/cart">
+        <hlm-icon
+          size="lg"
+          name="lucideShoppingCart
+          "
+          style="color: white"
+        ></hlm-icon>
       </a>
       <span
         class="top-0 start-22 translate-middle badge rounded-pill bg-danger"
       >
         3
       </span>
+    </div>
+    <div class="d-flex align-items-center ms-3">
+      <a class="" routerLink="/history">
+        <hlm-icon
+          size="lg"
+          name="lucideHistory"
+          style="color: white"
+        ></hlm-icon>
+      </a>
     </div>
     <div class="d-flex align-items-center ms-3">
       <div class="d-flex align-items-center ms-3">
@@ -55,15 +68,24 @@
           >
             <div class="flex justify-between space-x-4">
               <hlm-avatar variant="medium" id="avatar-small">
-                <img src="Banner1.png" alt="spartan logo. Resembling a spartanic shield" hlmAvatarImage />
+                <img
+                  src="Banner1.png"
+                  alt="spartan logo. Resembling a spartanic shield"
+                  hlmAvatarImage
+                />
               </hlm-avatar>
               <div class="space-y-1">
-                <h4 class="text-sm font-semibold">{{ name || 'Not logged in'}}</h4>
+                <h4 class="text-sm font-semibold">
+                  {{ name || "Not logged in" }}
+                </h4>
                 <p class="text-sm">Thank you for using Fashion Ease.</p>
                 <span class="text-xs text-muted-foreground"
                   >Everything you need in one place.</span
                 >
-                <div *ngIf="name.length > 0" class="flex items-center pt-2 space-x-2">
+                <div
+                  *ngIf="name.length > 0"
+                  class="flex items-center pt-2 space-x-2"
+                >
                   <button hlmBtn variant="outline" (click)="logout()">
                     Log out
                   </button>
@@ -77,14 +99,16 @@
                     Edit profile
                   </button>
                 </div>
-                <div *ngIf="name.length === 0" class="flex items-center pt-2 space-x-2">
+                <div
+                  *ngIf="name.length === 0"
+                  class="flex items-center pt-2 space-x-2"
+                >
                   <button hlmBtn variant="outline" routerLink="/login">
                     Log In
                   </button>
                   <button hlmBtn variant="outline" routerLink="/SignUp">
                     Sign Up
                   </button>
-                  
                 </div>
               </div>
             </div>

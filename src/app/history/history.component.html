@@ -1,0 +1,40 @@
+<nav-bar />
+
+<div class="" style="background-color: #f2f4f6">
+  <h1
+    class="title mb-3 py-4"
+    style="background-color: #732449; -webkit-text-fill-color: #d9b4a7"
+  >
+    VIEW ORDERS
+  </h1>
+
+
+  <div>
+    <div class="bg-white m-4 p-4 rounded shadow">
+        <div class="container">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-100 text-center">
+                <th class="p-2 border-b">Date</th>
+                <th class="p-2 border-b">Total</th>
+                <th class="p-2 border-b">Estado</th>
+                <th class="p-2 border-b" style="text-align: center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of allOrders" class="hover:bg-gray-50">
+                <td class="p-2 border-b title">{{ item.date }}</td>
+                <td class="p-2 border-b subtitle">${{ item.total }}</td>
+                <td class="p-2 border-b subtitle">{{ item.state }}</td>
+                <td class="p-2 border-b flex gap-2 justify-center">
+                  <button hlmBtn variant="outline" (click)="deleteOrder(item.id)">Return</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+  </div>
+</div>
+<app-footer />

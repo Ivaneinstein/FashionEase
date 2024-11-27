@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { HlmAvatarComponent } from '@spartan-ng/ui-avatar-helm';
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { provideIcons } from '@ng-icons/core';
-import { lucideUserCog, lucideSearch, lucideItalic } from '@ng-icons/lucide';
+import { lucideUserCog, lucideSearch, lucideItalic, lucideHistory, lucideShoppingCart} from '@ng-icons/lucide';
 
 import { HlmIconComponent } from '@spartan-ng/ui-icon-helm';
 
@@ -48,7 +48,8 @@ import { CommonModule } from '@angular/common';
   ],
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
-  providers: [provideIcons({ lucideUserCog, lucideItalic, lucideSearch })],
+  providers: [provideIcons({ lucideUserCog, lucideItalic, lucideSearch, lucideHistory, lucideShoppingCart
+  })],
 })
 export class NavBarComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}

@@ -29,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     HlmCardContentDirective,
     HlmInputDirective,
     HlmCardFooterDirective,
-    HlmButtonDirective,FormsModule
+    HlmButtonDirective,
+    FormsModule,
   ],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.css',
@@ -40,7 +41,7 @@ export class AddProductComponent {
   price: string = '';
   name: string = '';
   qty: string = '';
- image: string = '';
+  image: string = '';
   category: number = 0;
 
   add_product() {
@@ -52,7 +53,7 @@ export class AddProductComponent {
       image: this.image,
     };
 
-    console.log(body)
+    console.log(body);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -66,6 +67,11 @@ export class AddProductComponent {
         this.showToast('There was an error adding the product');
       }
     );
+    this.price = '';
+    this.name = '';
+    this.qty = '';
+    this.image = '';
+    this.category = 0;
   }
 
   showToast(msg: string) {
@@ -73,5 +79,4 @@ export class AddProductComponent {
       description: msg,
     });
   }
-  
 }

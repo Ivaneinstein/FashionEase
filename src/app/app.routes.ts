@@ -5,6 +5,7 @@ import { LoginPageComponent } from "./login-page/login-page.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 import { SearchComponent } from "./search/search.component";
 import { AdminComponent } from "./admin/admin.component";
+import { HistoryComponent } from "./history/history.component";
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -13,4 +14,5 @@ export const routes: Routes = [
   { path: 'SignUp', component: SignUpComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'history', component: HistoryComponent },
 ];
